@@ -1,0 +1,92 @@
+<view id="all">
+    <block wx:if="{{text =='请喝茶'}}">
+        <view id="first" class="margin">
+            <view id="title">下单编号: {{orderid}}</view>
+            <view class="date">下单时间: {{time}}</view>
+        </view>
+    </block>
+    <block wx:else>
+        <view id="first" class="margin">
+            <view id="title">{{title}}</view>
+            <view class="date">{{date}}</view>
+        </view>
+    </block>
+    <view class="margin">
+        <view class="content">
+            <view class="money">订单金额</view>
+            <block wx:if="{{text =='请喝茶'}}">
+                <view class="jiantou" bindtap="jtClick">
+                    <view class="mingxi">明细</view>
+                    <image  id="jiantou" mode="widthFix" src="{{jtSrc}}"></image>
+                </view>
+            </block>
+            <view class="content_view">
+                <text class="fuhao">¥ </text>
+                <text class="price">{{yuanjia}}</text>
+            </view>
+        </view>
+        <block wx:if="{{display == true}}">
+            <block wx:for="{{teaItems}}" wx:key="name">
+                <view class="content2">
+                    <view class="name">{{item.name}}</view>
+                    <view class="num">x {{item.num}}</view>
+                    <view class="content_view">
+                        <text class="fuhao">¥ </text>
+                        <text class="price">{{item.price}}</text>
+                    </view>
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{hongbao}}">
+            <view class="content">红包抵扣
+                <view class="content_view">
+                    <text id="hongbao" class="fuhao">- ¥ </text>
+                    <text class="price">{{hongbao}}</text>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{yhcost}}">
+            <view class="content">早报优惠
+                <view class="content_view">
+                    <text id="hongbao" class="fuhao">- ¥ </text>
+                    <text class="price">{{yhcost}}</text>
+                </view>
+            </view>
+        </block>
+
+        <view class="content">需支付
+            <view class="content_view">
+                <text class="fuhao">¥ </text>
+                <text class="price">{{price}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="margin">
+        <view class="title">
+            <text class="title_text">支付方式</text>
+        </view>
+        <radio-group class="radio-group" bindchange="radioChange">
+            <view class="zhifu_content" bindtap="weixin">
+                <image class="logo" mode="widthFix" src="{{src}}"></image>
+                <view class="zhifu_text">
+                    <view class="zhifu_title {{curSelect == '微信'?'red':''}}">微信支付</view>
+                    <view>微信钱包,银行卡支付</view>
+                </view>
+                <view class="gou">
+                    <radio value="{{wxValue}}" bindchange="radioChange" checked="{{wxChecked}}"/>
+                </view>
+            </view>
+            <view class="zhifu_content" bindtap="yue">
+                <image class="logo" mode="widthFix" src="{{src1}}"></image>
+                <view class="zhifu_text">
+                    <view class="zhifu_title {{curSelect == '余额'?'red':''}}">余额支付</view>
+                    <view>飞飞象账号余额支付</view>
+                </view>
+                <view class="gou">
+                    <radio value="{{yueValue}}" bindchange="radioChange" checked="{{yueChecked}}"/>
+                </view>
+            </view>
+        </radio-group>
+    </view>
+    <button class="pay {{hui}}" bindtap="pay" loading="{{loading}}" disabled="{{disabled}}">确认支付</button>
+</view>

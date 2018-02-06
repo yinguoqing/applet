@@ -1,0 +1,60 @@
+page{
+    height:100%;
+    width:100%
+}
+#all{
+    display: block;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    background: url("https://ffx.weiweitouzi.cn/data/upload/login/2x/background.jpg") no-repeat;
+    background-position: 0;
+    background-size: 100%;
+    position: relative;
+}
+#wxLogin{
+    position: absolute;
+    width: 80%;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: white;
+    /*background-color: #55b042;*/
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom: 1rpx #ffffff solid;
+    border-radius: 30px;
+    top: 836rpx;
+    left: 10%;
+
+}
+#phoneLogin{
+    position: absolute;
+    width: 80%;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: white;
+    /*background-color: #e9951d;*/
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom: 1rpx #ffffff solid;
+    border-radius: 30px;
+    top: 975rpx;
+    left: 10%;
+}
+image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.icon1{
+    position: absolute;
+    top: 856rpx;
+    left: 20%;
+    z-index: 1;
+}
+.icon2{
+    position: absolute;
+    top: 995rpx;
+    left: 20%;
+    z-index: 1;
+}
+.button-hover {
+    opacity: 0.5;
+}

@@ -1,0 +1,52 @@
+<view id="all">
+    <view id="first">请为本次活动打分</view>
+    <view id="second">
+        <block wx:for="{{stars}}" wx:key="id">
+            <view class="inline" bindtap="tapStar" data-index="{{index}}">
+                <image  class="star"  mode="widthFix" src="{{item.src}}" bindtap="tapStar"></image>
+            </view>
+        </block>
+    </view>
+    <view>
+        <textarea class="textarea {{hide2}}"  bindinput="input"/>
+        <view class="placeholder"  style="display:{{display}}">
+            <view >活动还满意吗?孩子收获大吗?</view>
+            <view>有什么想对飞飞象或者举办方说的吗?</view>
+            <view>写满15字才是好同志</view>
+        </view>
+        <view class="zishu">
+            <text>还需要输入 </text>
+            <text class="num">{{num}}</text>
+            <text> 个字</text>
+        </view>
+    </view>
+
+    <view id="photos">
+        <block wx:for="{{photos}}"  wx:key="*this">
+            <view class="choosePhoto" bindtap="preview"  data-index="{{index}}">
+                <image class="photo" mode="aspectFill" src="{{item}}"></image>
+                <image class="del" mode="widthFix" src="{{del}}" catchtap="del"  data-index="{{index}}"></image>
+            </view>
+        </block>
+        <view class="choosePhoto"  bindtap="choosePhoto">
+            <view class="imgView">
+                <image class="img"  mode="widthFix"  src="{{src1}}"></image>
+            </view>
+            <view class="imgView2">
+                <image class="img2" mode="widthFix" src="{{src2}}"></image>
+            </view>
+        </view>
+    </view>
+    
+    <button class="btn" bindtap="finish">确认发布</button>
+</view>
+<view class="loading {{hideCube}}">
+    <view class="sk-folding-cube">
+        <view class="sk-cube1 sk-cube"></view>
+        <view class="sk-cube2 sk-cube"></view>
+        <view class="sk-cube4 sk-cube"></view>
+        <view class="sk-cube3 sk-cube"></view>
+    </view>
+    <view class="data_loading">玩命加载中</view>
+    <view class="data_loading2">若加载过慢,可返回重试</view>
+</view>

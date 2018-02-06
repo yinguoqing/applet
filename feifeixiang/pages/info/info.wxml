@@ -1,0 +1,125 @@
+<view id="all">
+    <view id="top">
+        <view class="content" bindtap="touxiang">
+            <view class="text" id="txText">
+                <text>头像</text>
+            </view>
+            <view id="touxiang" >
+                <image class="userinfo-avatar" mode="aspectFill" src="{{src}}"></image>
+            </view>
+            <view class="back2" >
+                <image id="" class="back" mode="widthFix" src="{{src1}}"></image>
+            </view>
+        </view>
+        <view class="content">
+            <view class="text">
+                <text>昵称</text>
+            </view>
+            <input id="name" value="{{nickname}}" placeholder-style="color: #8d8d8d" placeholder="请输入您的昵称" maxlength="15"  bindinput="nameInputEvent" />
+        </view>
+        <view class="content" bindtap="tel">
+            <view class="text">
+                <text>手机</text>
+            </view>
+            <view class="telText">
+                <text>{{formatTel}}</text>
+            </view>
+            <view class="back2" >
+                <image id="" class="back" mode="widthFix" src="{{src1}}"></image>
+            </view>
+        </view>
+        <!--<view class="content" bindtap="city">
+            <view class="text">
+                <text>所在城市</text>
+            </view>
+            <view class="holder2">
+                {{rgcData.city}}
+            </view>
+            <view class="back2" >
+                <image id="" class="back" mode="widthFix" src="{{src1}}"></image>
+            </view>
+        </view>-->
+        <view class="content" bindtap="city">
+            <view class="text">
+                <text>常用店铺</text>
+            </view>
+            <view class="holder2">
+                {{rgcData.city}}
+            </view>
+            <view class="back2" >
+                <image id="" class="back" mode="widthFix" src="{{src1}}"></image>
+            </view>
+        </view>
+        <view class="content" bindtap="address" id="address">
+            <view class="text">
+                <text>地址管理</text>
+            </view>
+            <view class="holder3">
+                {{address}}
+            </view>
+            <view class="back2" >
+                <image id="" class="back" mode="widthFix" src="{{src1}}"></image>
+            </view>
+        </view>
+    </view>
+    <view id="second">
+        <view class="content">
+            <text id="childInfo">孩子信息</text>
+            <text class="num"> ({{childNum}}</text>
+            <text class="num">个孩子)</text>
+            <view class="addButton" bindtap="addClick">
+                <image id="" class="addImg" mode="widthFix" src="{{src2}}"></image>
+                <text class="add">添加</text>
+            </view>
+        </view>
+    </view>
+    <view class="child_list" wx:for="{{items}}" wx:key="id">
+        <view class="content">
+            <view class="text">
+                <text>名字</text>
+            </view>
+            <input id="childName" value="{{item.childName}}" placeholder-style="color: #8d8d8d" placeholder="请输入孩子名字" maxlength="15"  bindinput="childNameInputEvent" data-index="{{index}}"/>
+        </view>
+        <view class="content">
+            <view class="text">
+                <text>身份证号</text>
+            </view>
+            <input id="idNum" data-index="{{index}}" value="{{item.idNum}}" placeholder-style="color: #8d8d8d" placeholder="请输入孩子身份证号" type="idcard" maxlength="18"  bindinput="idNumInputEvent" />
+        </view>
+        <view class="content">
+            <picker bindchange="bindPickerChange" value="{{item.index}}" range="{{item.array}}" data-index="{{index}}">
+                <view id="">
+                    <view class="title">
+                        性别
+                    </view>
+                    <view class="holder2">
+                        {{item.array[item.index]}}
+                    </view>
+                    <view class="back2">
+                        <image id="" class="back" mode="widthFix" src="{{src1}}"></image>
+                    </view>
+                </view>
+            </picker>
+        </view>
+        <view class="content" id="birth">
+            <picker mode="date" value="{{item.date}}" start="1999-01-01" end="{{end}}" bindchange="bindDateChange" data-index="{{index}}">
+                <view id="">
+                    <view class="title">
+                        生日
+                    </view>
+                    <view class="holder" wx:if="{{item.date == ''}}">
+                        请选择孩子生日
+                    </view>
+                    <view class="holder2" wx:else>
+                        {{item.date}}
+                    </view>
+                    <view class="back2" >
+                        <image id="" class="back" mode="widthFix" src="{{src1}}"></image>
+                    </view>
+                </view>
+            </picker>
+        </view>
+        <button class="del" bindtap="del" data-index="{{index}}">删除</button>
+    </view>
+    <button id="finish" bindtap="save" disabled="{{flag}}" class="{{disable}}">保存</button>
+</view>

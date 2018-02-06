@@ -1,0 +1,249 @@
+page{
+    background-color: #f5f5f5;
+}
+#all{
+    display: block;
+    background-color: #f5f5f5;
+    font-size: 26rpx;
+    color: #585858;
+    overflow: auto;
+    padding-bottom: 140rpx;
+}
+#chooseNum{
+    margin-top: 0;
+}
+#chooseNum2{
+    margin-top: 0;
+}
+#title{
+    background-color: #6ad266;
+    color: white;
+    padding: 20rpx 3.5%;
+    line-height: 45rpx;
+}
+.title_1{
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow:hidden;
+}
+.margin{
+    margin-top: 20rpx;
+    background-color: white;
+    padding: 20rpx 3.5% 0 3.5%;
+}
+.title{
+    font-size: 30rpx;
+    font-weight: bold;
+    padding-left: 20rpx;
+    border-left: 10rpx solid #6ad266;
+    margin-bottom: 20rpx;
+}
+.content{
+    border-top: 1rpx solid #e5e5e5;
+    height: 80rpx;
+    line-height: 80rpx;
+    position: relative;
+    color: #8d8d8d;
+}
+.anniu1,.anniu2{
+    width: 44rpx;
+    height: 44rpx;
+}
+.num{
+    position: absolute;
+    right: 64rpx;
+    top: 0;
+}
+.anniu1{
+    position: absolute;
+    right: 97rpx;
+    top: 18rpx;
+}
+.anniu2{
+    position: absolute;
+    right: 0;
+    top: 18rpx;
+}
+.choose{
+    background-color: #fe782f;
+    color: white;
+    display:inline-block;
+    position: absolute;
+    right: 0;
+    top: 10rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 0;
+}
+.button-hover{
+    opacity: 0.5;
+}
+.input{
+    position: relative;
+}
+.input text{
+    position: absolute;
+}
+.input input{
+    margin-left: 100rpx;
+    height: 80rpx;
+}
+#bottom{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: white;
+}
+.zhifujiage{
+     background-color: #6ad266;
+     display: inline-block;
+     width: 60%;
+     height: 100%;
+     text-align: center;
+}
+.quzhifu{
+    background-color: #fe782f;
+    display: inline-block;
+    width: 40%;
+    height: 100%;
+    text-align: center;
+}
+.quzhifuHover{
+    opacity: 0.7;
+}
+.date{
+    display: flex;
+    flex-flow: row wrap;
+}
+.dateContent{
+    width: 30%;
+    border: 1px solid #e5e5e5;
+    margin-left: 5%;
+    margin-top: 20rpx;
+    position: relative;
+    line-height: 50rpx;
+    text-align: center;
+    box-sizing: border-box;
+}
+.dateContent:nth-child(3n+1){
+    margin-left: 0;
+}
+.fullDate{
+    margin-top: 20rpx;
+}
+.year{
+    font-weight: bold;
+}
+.fullDate:first-child{
+    border-top: 1px solid #e5e5e5;
+    padding-top: 20rpx;
+}
+.describe{
+    color: #6ad266;
+}
+.disabled{
+    color: #8d8d8d;
+}
+.dateContent_date{
+}
+.lvgou{
+    width: 65rpx;
+    height: 65rpx;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: none;
+}
+.show{
+    display: block;
+}
+.checkbox-group{
+    display: inline-block;
+    vertical-align: middle;
+}
+#tiaokuan{
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    background-color: white;
+    padding-left: 3.5%;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+.tiaokuan_text{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10rpx;
+}
+.tiaokuan_text2{
+    color: #6ad266;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10rpx;
+}
+.margin2{
+    padding-bottom: 20rpx;
+}
+textarea{
+    width: 100%;
+    height: 110rpx;
+}
+.hongbao{
+    color: #fe782f;
+}
+.hongbaogouxuan{
+    width: 44rpx;
+    height: 44rpx;
+    position: absolute;
+    top: 18rpx;
+    right: 0;
+}
+#citys{
+    display: flex;
+    flex-flow: row wrap;
+    border-top: 1px solid #e5e5e5;
+}
+.city{
+    width: 22%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border: 1px solid #6ad266;
+    margin-left: 3%;
+    margin-top: 20rpx;
+}
+.city:nth-child(4n+1){
+    margin-left: 0;
+}
+.click{
+    background-color: #6ad266;
+    color: white;
+}
+.shuzi{
+    color: #fe782f;
+}
+.yixuanze{
+    font-weight: bold;
+    color: #585858;
+}
+.price{
+    font-weight: bold;
+    font-size: 30rpx;
+    color: #fe782f;
+}
+.zhifu{
+    font-weight: bold;
+    font-size: 30rpx;
+}
+.jiahei{
+    color: #585858;
+}
+.picker{
+    height:80rpx;
+    line-height: 80rpx;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

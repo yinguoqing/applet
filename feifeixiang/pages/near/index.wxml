@@ -1,0 +1,47 @@
+<view id="top">
+    <input id="searchInput" placeholder-style="color:#8d8d8d" placeholder="请输入搜索信息" bindinput="searchInput" focus="true"/>
+    <image  id="icon" bindtap="search" mode="widthFix"  src="{{src}}"></image>
+</view>
+<view id="address_line" bindtap="refresh">
+    <view id="location_view">
+        <image id="location" mode="scaleToFill" src="../../images/position_icon.png"></image>
+        <text id="locationText">{{location}}</text>
+    </view>
+    <view id="refresh_view">
+        <image id="refresh" class="{{animation}}" mode="scaleToFill" src="../../images/shuaxin_icon.png" ></image>
+    </view>
+</view>
+<view>
+    <block wx:for="{{items}}">
+        <view class="collect">
+            <navigator url="../details/index?id={{item.id}}&text={{item.type}}">
+                <view class="left2">
+                    <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                    <image class="img2" mode="widthFix" src="{{item.src2}}"></image>
+                    <text class="biaoqian2">{{item.biaoqian}}</text>
+                </view>
+                <view class="right2">
+                    <view>{{item.title}}</view>
+                    <block wx:if="{{item.pingtuan}}">
+                        <view class="pingtuan">{{item.pingtuan}}</view>
+                    </block>
+                    <view class="middle">
+                        <view class="location2_view">
+                            <image id="location2" mode="scaleToFill" src="../../images/position_icon.png"></image>
+                            <text class="juli">{{item.distance}}km</text>
+                        </view>
+                        <view class="jiage">
+                            <view class="yuanjia">原价¥ {{item.yuanjia}}</view>
+                            <view>
+                                <text class="tiefen1">铁粉价</text>
+                                <text class="fuhao"> ¥ </text>
+                                <text class="tiefen2">{{item.tiefen}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </block>
+</view>
+

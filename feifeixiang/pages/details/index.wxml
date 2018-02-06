@@ -1,0 +1,620 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view id="all">
+    <view id="first">
+        <view id="topBgView">
+            <image id="topBg" mode="scaleToFill" src="{{src}}"></image>
+        </view>
+        <view id="firstContent">
+            <view id="title">
+                <text class="title">{{title}}</text>
+                <block wx:if="{{!qzsg}}">
+                    <image class="shoucang"  mode="scaleToFill" src="{{isshoucang==true?yixuan:weixuan}}" bindtap="shoucang"></image>
+                </block>
+            </view>
+            <block wx:if="{{qzsg}}">
+                <view id="miaoshu">
+                    <text  class="miaoshu">空闲时间陪伴孩子的最好方式!</text>
+                </view>
+            </block>
+            <view id="miaoshu">
+                <text  class="miaoshu">{{miaoshu}}</text>
+            </view>
+            <block wx:if="{{youhui}}">
+                <block wx:if="{{youhui[0] != null}}">
+                    <view id="biaoqian">
+                        <block wx:for="{{youhui}}">
+                            <text class="biaoqian">{{item}}</text>
+                        </block>
+                    </view>
+                </block>
+            </block>
+            <view id="price">
+                <block wx:if="{{qzsg}}">
+                    <text>剩余库存 </text>
+                    <text class="red">{{stock}}</text>
+                    <text> 份</text>
+                </block>
+                <block wx:else>
+                    <text class="jiage">¥ </text>
+                    <text class="price">{{price == null ?0:price}}</text>
+                </block>
+                <block wx:if="{{qzsg}}">
+                    <block wx:if="{{stock != 0}}">
+                        <text class="baomingzhong" style="background-color: #fe782f">活动开放中</text>
+                    </block>
+                    <block wx:else>
+                        <text class="baomingzhong" style="background-color: #cdcdcd">活动已结束</text>
+                    </block>
+                </block>
+                <block wx:else>
+                    <text class="baomingzhong" style="background-color: {{bgColor}}">{{baomingzhong}}</text>
+                </block>
+            </view>
+            <view id="jingxuan" class="title">
+                <text class="jingxuan">优惠方式（优惠可叠加）</text>
+            </view>
+            <block wx:if="{{zaoniao[0]!=''&&zaoniao[0]!=null}}">
+                <view id="zaoniao">
+                    <view class="zb_left">早报优惠</view>
+                    <block wx:for="{{zaoniao}}" wx:key="*this">
+                        <text class="zb_right">{{item}}</text>
+                    </block>
+                </view>
+            </block>
+            <block wx:if="{{ptItems}}">
+                <view id="pingtuan">
+                    <view class="pingtuanBg">
+                        <text class="pingtuan" space='true'>{{pingtuan}}</text>
+                    </view>
+                        <rich-text>11</rich-text>
+                        <view id="ptDetails">
+                            <navigator url="../notice/notice?nid=2">
+                                <view class="size" wx:for="{{ptItems}}" wx:key="id">
+                                    <text class="ptDetails">{{item.ptDetails}}</text>
+                                    <text class="ptPrice">{{item.ptPrice}}</text>
+                                    <text class="shuminghao">{{item.shuminghao}}</text>
+                                </view>
+                            </navigator>
+                        </view>
+                    <button class="faqipingtuan11" bindtap="pingtuanNow">发起拼团</button>
+                    <block wx:if="{{endtime}}">
+                        <view id="ptTime">
+                            <image class="touxiang" mode="scaleToFill" src="{{ptsrc}}"></image>
+                            <view id="text">
+                                <view>
+                                    <text class="nickname">{{nickname}}</text>
+                                    <text class="tuan">团</text>
+                                    <text class="chajiren">{{chajiren}}</text>
+                                </view>
+                                <view class="shengyushijian">
+                                    <text class="time">{{time}}</text>
+                                </view>
+                            </view>
+                            <button class="qucantuan" bindtap="qucantuan" disabled="{{flag3}}" style="background-color: {{cantuanBgColor}}">{{qucantuan}}</button>
+                        </view>
+                    </block>
+
+                </view>
+            </block>
+            <block wx:if="{{!qzsg}}">
+                <view class="tf">
+                    <view class="tf_left" bindtap="skipToTiefen2">
+                        <text class="tiefen1">铁粉优惠</text>
+                        <text class="tiefen2">本活动，铁粉报名可优惠{{tfyh == null?0:tfyh}}元</text>
+                    </view>
+                    <view class="tf_right" bindtap="kaitong" hover-class="hover" hover-stay-time="200" bindtap="skipToTiefen">
+                        <text class="tiefen3">立即开通</text>
+                    </view>
+                </view>
+            </block>
+            <block wx:if="{{red}}">
+                <view class="tf">
+                    <view class="tf_left">
+                        <text class="tiefen1">红包优惠</text>
+                        <text class="tiefen2">本活动，可用红包{{red}}元</text>
+                    </view>
+                    <view class="tf_right" bindtap="kaitong" hover-class="hover" hover-stay-time="200" bindtap="notice">
+                        <text class="tiefen3">获取红包</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+
+
+    <view id="second">
+        <view class="tips" wx:for="{{tipItems}}" wx:key="id">
+            <view class="tipsView">
+                <image class="icon" mode="scaleToFill" src="{{item.src}}"></image>
+            </view>
+            <text class="tipText">{{item.text}}</text>
+        </view>
+        <block wx:if="{{qzsg}}">
+            <view class="tips">
+                <view class="tipsView">
+                    <image class="icon" mode="scaleToFill" src="{{tzSrc}}"></image>
+                </view>
+                <text class="tipText2">免费租赁期限为 </text>
+                <text class="tipText2 red">{{day}}</text>
+                <text class="tipText2"> 天</text>
+            </view>
+            <view class="tips">
+                <view class="tipsView">
+                    <image class="icon" mode="scaleToFill" src="{{tzSrc}}"></image>
+                </view>
+                <text class="tipText2">逾期未归还,自动扣除 </text>
+                <text class="tipText2 red">{{cost}}</text>
+                <text class="tipText2"> 元/每天的费用</text>
+            </view>
+        </block>
+
+    </view>
+    <!--<view id="third">-->
+        <!--<view class="loaction1">-->
+            <!--<text class="locationTitle">{{locationTitle}}</text>-->
+            <!--<image class="back" mode="scaleToFill" src="{{src4}}"></image>-->
+        <!--</view>-->
+        <!--<view class="location2">-->
+            <!--{{loaction}}-->
+        <!--</view>-->
+    <!--</view>-->
+    <block wx:if="{{!qzsg}}">
+        <block wx:if="{{qishu}}">
+            <view id="qishu">
+                <view id="jingxuan" class="title">
+                    <text class="jingxuan">可选期数</text>
+                </view>
+                <view class="qishu_view">
+                    <block wx:for="{{qishu}}" wx:key="id">
+                        <view class="qsContent">
+                            <view>{{item.name}}</view>
+                            <view>{{item.date}}</view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </block>
+
+
+        <!--<view id="fourth">
+            <view id="jingxuan" class="title">
+                <text class="jingxuan">{{fifth}}</text>
+            </view>
+            <block wx:if="{{ptItems2}}">
+                <view class="pingtuan2" wx:for="{{ptItems2}}" wx:key="id">
+                    <view class="pingtuanBg">
+                        <text class="pingtuan">{{pingtuan}}</text>
+                    </view>
+                    <view class="ptDetails2">
+                        <view class="ptTitle">
+                            <text>{{item.ptTitle}}</text>
+                        </view>
+                        <view class="kexuanriqi">
+                            <block wx:if="{{item.riqi.length>0}}">
+                                <text>{{item.mane == true?'套餐已满额':'可选日期: '}}{{item.riqi}}</text>
+                            </block>
+                            <block wx:else>
+                                <text>{{tcItems.length>0?'套餐已过期':'拼团结束'}}</text>
+                            </block>
+                        </view>
+                        <view class="shuoming">
+                            <text class="taocanshuoming">套餐说明 </text>
+                            <image class="back4" mode="scaleToFill" src="{{src6}}"></image>
+                        </view>
+                        <block wx:if="{{item.mane == false}}">
+                            <view class="pingtuanJiage">
+                                <text class="fuhao">原价¥ </text>
+                                <text class="ptJiage">{{item.ptJiage}}</text>
+                            </view>
+                            <view class="tiefenjia">
+                                <text class="tiefenjia1">铁粉价</text>
+                                <text class="tiefenjia2"> ¥ </text>
+                                <text class="tiefenjia3">{{item.tiefenjia}}</text>
+                            </view>
+                            <view class="faqipingtuan_view">
+                                <button class="faqipingtuan">{{faqipingtuan}}</button>
+                            </view>
+                        </block>
+                        <block wx:else>
+                            <view class="pingtuanJiage">
+                                <text class="fuhao2">原价¥ </text>
+                                <text class="ptJiage2">{{item.ptJiage}}</text>
+                            </view>
+                            <view class="huodongmane_view">
+                                <button class="huodongmane" disabled="true">{{pingtuanjieshu}}</button>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </block>
+            <view class="ptDetails3" wx:for="{{tcItems.length>0?tcItems:ptItems3}}" wx:key="id">
+                <view class="ptTitle">
+                    <text>{{item.title}}</text>
+                </view>
+                <view class="kexuanriqi">
+                    <block wx:if="{{item.riqi.length>0}}">
+                        <text>{{item.mane == true?'套餐已满额':'可选日期: '}}{{item.riqi}}</text>
+                    </block>
+                    <block wx:else>
+                        <text>{{tcItems.length>0?'套餐已过期':'拼团结束'}}</text>
+                    </block>
+                </view>
+                <view class="shuoming">
+                    <text class="tcshuoming">套餐说明 </text>
+                    <image class="back4" mode="scaleToFill" src="{{src6}}"></image>
+                </view>
+                <block wx:if="{{item.mane == false}}">
+                    <view class="pingtuanJiage">
+                        <text class="fuhao">原价¥ </text>
+                        <text class="ptJiage">{{item.ptJiage}}</text>
+                    </view>
+                    <view class="tiefenjia">
+                        <text class="tiefenjia1">铁粉价</text>
+                        <text class="tiefenjia2"> ¥ </text>
+                        <text class="tiefenjia3">{{item.tiefenjia}}</text>
+                    </view>
+                    <view class="faqipingtuan_view">
+                        <button class="faqipingtuan" bindtap="buyNow" data-index="{{index}}">{{lijigoumai}}</button>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="pingtuanJiage">
+                        <text class="fuhao2">原价¥ </text>
+                        <text class="ptJiage2">{{item.ptJiage}}</text>
+                    </view>
+                    <view class="huodongmane_view">
+                        <button class="huodongmane" disabled="true">{{huodongmane}}</button>
+                    </view>
+                </block>
+            </view>
+        </view>-->
+        <block wx:if="{{text!='冬令营'&&text!='夏令营'}}">
+            <block wx:if="{{price}}">
+                <view id="fourth">
+                    <!--<block wx:if="{{ptItems2}}">
+                        <block wx:for="{{ptItems2}}">
+                            <view class="ptItems2">
+                                <view>{{item.ptTitle}}</view>
+                                <view class="pingtuanJiage2">
+                                    <text class="fuhao">原价¥ </text>
+                                    <text class="ptJiage">{{item.ptJiage}}</text>
+                                </view>
+                                <view class="tiefenjia22" bindtap="skipToTiefen2">
+                                    <text class="tiefenjia1">铁粉价</text>
+                                    <text class="tiefenjia2"> ¥ </text>
+                                    <text class="tiefenjia3">{{item.tiefenjia}}</text>
+                                </view>
+                                <view class="faqipingtuan_view">
+                                    <button class="faqipingtuan" bindtap="pingtuanNow">发起拼团</button>
+                                </view>
+                            </view>
+                        </block>
+
+                    </block>
+                    <block else>-->
+                    <view>{{title}}</view>
+                    <view class="pingtuanJiage">
+                        <text class="fuhao">原价¥ </text>
+                        <text class="ptJiage">{{price}}</text>
+                    </view>
+                    <view class="tiefenjia" bindtap="skipToTiefen2">
+                        <text class="tiefenjia1">铁粉价</text>
+                        <text class="tiefenjia2"> ¥ </text>
+                        <text class="tiefenjia3">{{mprice}}</text>
+                    </view>
+                    <view class="faqipingtuan_view">
+                        <block wx:if="{{ptItems}}">
+                            <block wx:if="{{baomingzhong=='活动报名中'}}">
+                                <button class="faqipingtuan" bindtap="pingtuanNow">发起拼团</button>
+                            </block>
+                            <block wx:else>
+                                <button class="yijieshu" disabled="true">已结束</button>
+                            </block>
+                        </block>
+                        <block wx:else>
+                            <block wx:if="{{baomingzhong=='活动报名中'}}">
+                                <button class="faqipingtuan" bindtap="buyNow">立即报名</button>
+                            </block>
+                            <block wx:else>
+                                <button class="yijieshu" disabled="true">已结束</button>
+                            </block>
+                        </block>
+                    </view>
+                    <!--</block>-->
+                </view>
+            </block>
+        </block>
+
+        <view id="fifth">
+            <view class="leijiyishou1">
+                <text class="leiji">累计已售</text>
+                <text class="num">{{yishou}}</text>
+                <text class="fen">份</text>
+                <image class="back" mode="scaleToFill" src="{{src4}}"></image>
+            </view>
+            <block wx:if="{{yishou>0}}">
+                <view class="leijiyishou2">
+                    <block wx:for="{{touxiangItems}}" wx:key="id">
+                        <image class="touxiang2" mode="scaleToFill" src="{{item.src}}"></image>
+                    </block>
+                </view>
+            </block>
+            <view id="pingjia" bindtap="skipToPingjia">
+                <text class="pingjia">评价: </text>
+                <image class="star" mode="scaleToFill" src="{{starSrc}}"></image>
+                <text class="pingjiaNum">{{pingjiaNum}}</text>
+                <text class="renpingjia">人评价</text>
+                <image class="back2" mode="scaleToFill" src="{{src4}}"></image>
+            </view>
+            <!--<view id="live" bindtap="skipToLive">
+                <text class="pingjia">查看活动直播</text>
+                <image class="back2" mode="scaleToFill" src="{{src4}}"></image>
+            </view>-->
+        </view>
+        <block wx:if="{{zbName}}">
+            <block wx:if="{{text!='冬令营'&&text!='夏令营'}}">
+                <navigator url="../zhubanfang/zhubanfang?id={{zbid}}&zbName={{zbName}}&zbphoto={{zbphoto}}">
+                    <view id="sixth">
+                        <view id="zhubanfang" class="title">
+                            <text class="zhubanfang">{{sixth}}</text>
+                        </view>
+                        <view id="zbContent">
+                            <image class="touxiang3" mode="scaleToFill" src="{{zbphoto}}"></image>
+                            <view class="zbContent">
+                                <view class="zbName">
+                                    <text>{{zbName}}</text>
+                                </view>
+                                <view class="zbMiaoshu">
+                                    <text>{{zbMiaoshu}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view id="zbTongji">
+                            <view class="tongjiBlock">
+                                <image class="square" mode="scaleToFill" src="{{src8}}"></image>
+                                <text class="tjText"> 报名人数</text>
+                                <view class="tjNum">{{baomingrenshu}}</view>
+                            </view>
+                            <view class="tongjiBlock">
+                                <image class="square" mode="scaleToFill" src="{{src9}}"></image>
+                                <text class="tjText"> 活动数量</text>
+                                <view class="tjNum">{{huodongshuliang}}</view>
+                            </view>
+                            <view class="tongjiBlock">
+                                <image class="square" mode="scaleToFill" src="{{src10}}"></image>
+                                <text class="tjText"> 总体评分</text>
+                                <view class="tjNum">{{yonghupingjia}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+            </block>
+        </block>
+    </block>
+    <view id="seventh">
+        <view id="tongji3">
+            <view class="tongjiBlock2 {{select1}} {{bg1}}" bindtap="xiangqing">
+                <text class="tjText2">详情</text>
+            </view>
+            <view class="tongjiBlock2 {{select2}} {{bg2}}" bindtap="pingjia">
+                <text class="tjText2">评价 ({{pingjiaNum}})</text>
+            </view>
+            <view class="tongjiBlock2 {{select3}} {{bg3}}" bindtap="liuyan">
+                <text class="tjText2">留言 ({{liuyanNum}})</text>
+            </view>
+        </view>
+        <block wx:if="{{flag == 'xiangqing'}}">
+            <view id="xiangqing2">
+                <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+            </view>
+        </block>
+        <block wx:elif="{{flag == 'pingjia'}}">
+            <block wx:if="{{pjItems}}">
+                <view id="pingjia2">
+                    <text>整体评价: {{yonghupingjia}}分</text>
+                </view>
+                <view class="pingjiaContent" wx:for="{{pjItems}}" wx:key="id">
+                    <image mode="scaleToFill" class="touxiang4" src="{{item.src}}"></image>
+                    <view class="right">
+                        <text class="name">{{item.name}}</text>
+                        <image mode="scaleToFill" class="star2" src="{{src12}}{{item.score}}@2x.png"></image>
+                        <view class="date">
+                            <text>{{item.date}}</text>
+                        </view>
+                        <view class="pinglun">
+                            <text>{{item.content}}</text>
+                        </view>
+                        <view class="photos" data-index="{{index}}" bindtap="previewArr">
+                            <view wx:for="{{item.img}}" class="photoView" data-index="{{index}}" bindtap="preview">
+                                <image mode="aspectFill" class="photo" src="{{item}}"></image>
+                            </view>
+                        </view>
+                        <view class="dianzan">
+                            <text class="dianzan_text1">{{item.record}}</text>
+                            <block wx:if="{{uid}}">
+                                <image mode="scaleToFill" class="dianzan_logo" src="{{item.zan}}" data-index="{{index}}" bindtap="dianzan"></image>
+                            </block>
+                            <block wx:else>
+                                <image mode="scaleToFill" class="dianzan_logo" src="{{zan2}}" data-index="{{index}}" bindtap="dianzan"></image>
+                            </block>
+                            <text class="dianzan_text2">({{item.dianzan}})</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="empty">
+                    <image mode="scaleToFill" class="empty_img" src="{{empty}}"></image>
+                </view>
+                <view class="empty_text">
+                    <text>暂时没有评价~</text>
+                </view>
+            </block>
+        </block>
+        <block wx:else>
+            <view id="liuyan2">
+                <view class="lyArea {{hide}}">
+                    <textarea id="textarea" class="textarea" placeholder="请输入您的留言,我们会第一时间回复您~" placeholder-style="color:#8d8d8d" bindinput="liyanInputEvent"/>
+                </view>
+                <view class="btnBg">
+                    <button class="liuyanBtn {{disabled}}" bindtap="sendMessage" disabled="{{flag2}}" loading="{{loadFlag}}">我要留言</button>
+                </view>
+                <block wx:if="{{lyItems}}">
+                    <view class="lyAll" wx:for="{{lyItems}}" wx:key="id">
+                        <view class="yonghu">
+                            <image mode="scaleToFill" class="touxiang5" src="{{item.src}}"></image>
+                            <view class="ly1">
+                                <view class="ly1_view1">
+                                    <text class="ly1_name">{{item.name}}</text>
+                                    <text class="ly1_date">{{item.date}}</text>
+                                </view>
+                                <view class="ly1_view2">
+                                    <text class="ly1_content">{{item.content}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="kefu">
+                            <image mode="scaleToFill" class="touxiang6" src="{{item.src2}}"></image>
+                            <view class="ly1">
+                                <view class="ly1_view1">
+                                    <text class="ly1_name">{{item.name2}}</text>
+                                    <text class="ly1_date">{{item.date2}}</text>
+                                </view>
+                                <view class="ly1_view2">
+                                    <text>{{item.content2}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="empty">
+                        <image mode="scaleToFill" class="empty_img" src="{{empty}}"></image>
+                    </view>
+                    <view class="empty_text">
+                        <text>暂时没有留言~</text>
+                    </view>
+                </block>
+            </view>
+        </block>
+    </view>
+    <button id="share" open-type="share" bindtap=""></button>
+    <view id="bottom">
+        <view class="bottom1" hover-class="hover" hover-stay-time="200" bindtap="skipToLiuyan">
+            <image class="liuyan" mode="scaleToFill" src="{{src11}}"></image>
+            <view>
+                <text class="liuyanText">留言</text>
+            </view>
+        </view>
+        <label for="share" class="bottom1">
+            <view  hover-class="hover" hover-stay-time="200" bindtap="share">
+                <image class="liuyan" mode="scaleToFill" src="{{srcShare}}"></image>
+                <view>
+                    <text class="liuyanText">分享</text>
+                </view>
+            </view>
+        </label>
+        <block wx:if="{{ptItems}}">
+            <block wx:if="{{baomingzhong=='活动报名中'}}">
+                <view class="bottom2" hover-class="hover" hover-stay-time="200" bindtap="buyNow">
+                    <text class="gmBtn">直接购买</text>
+                </view>
+                <view class="bottom3" hover-class="hover" hover-stay-time="200" bindtap="pingtuanNow">
+                    <view class="ptBtn">
+                        <text>发起拼团 </text>
+                    </view>
+                    <view class="ptBtn2">
+                        <text>最高返¥ {{fanxian}}</text>
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="bottom22">
+                    <text class="gmBtn">已结束</text>
+                </view>
+            </block>
+
+        </block>
+        <block wx:else>
+            <block wx:if="{{qzsg}}">
+                <block wx:if="{{stock != 0}}">
+                    <view class="bottom2" hover-class="hover" hover-stay-time="200" bindtap="zuling">
+                        <text class="gmBtn">立即租赁</text>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="bottom22">
+                        <text class="gmBtn">已结束</text>
+                    </view>
+                </block>
+            </block>
+            <block wx:else>
+                <block wx:if="{{baomingzhong=='活动报名中'}}">
+                    <view class="bottom2" hover-class="hover" hover-stay-time="200" bindtap="buyNow">
+                        <text class="gmBtn">立即报名</text>
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="bottom22">
+                        <text class="gmBtn">已结束</text>
+                    </view>
+                </block>
+            </block>
+        </block>
+
+    </view>
+    <!--<view id="tankuang" style="display: {{showTankuang}}">
+        <view class="ptDetails3_1" bindtap="{{item.mane == false?'buyNow':''}}" wx:for="{{tcItems.length>0?tcItems:ptItems3}}" wx:key="id" data-index="{{index}}">
+            <view class="ptTitle">
+                <text>{{item.ptTitle}}</text>
+            </view>
+            <view class="kexuanriqi">
+                <block wx:if="{{item.riqi.length>0}}">
+                    <text>{{item.mane == true?'套餐已满额':'可选日期: '}}{{item.riqi}}</text>
+                </block>
+                <block wx:else>
+                    <text>{{tcItems.length>0?'套餐已过期':'拼团结束'}}</text>
+                </block>
+            </view>
+            <block wx:if="{{item.mane == false}}">
+                <view class="pingtuanJiage_1">
+                    <text class="fuhao">原价¥ </text>
+                    <text class="ptJiage">{{item.ptJiage}}</text>
+                </view>
+                <view class="tiefenjia_1">
+                    <text class="tiefenjia1">铁粉价</text>
+                    <text class="tiefenjia2"> ¥ </text>
+                    <text class="tiefenjia3">{{item.tiefenjia}}</text>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="pingtuanJiage_1">
+                    <text class="fuhao2">原价¥ </text>
+                    <text class="ptJiage2">{{item.ptJiage}}</text>
+                </view>
+            </block>
+            <image class="jiantou" mode="scaleToFill" src="{{src4}}"></image>
+        </view>
+        <view id="back" bindtap="fanhui" hover-class="hover" hover-stay-time="200">
+            <text class="backText">返回</text>
+        </view>
+    </view>-->
+    <view class="share_view" style="display:{{display}}" bindtap="hideShare">
+        <image class="share_img" mode="widthFix" src="{{shareSrc}}"></image>
+    </view>
+    <block wx:if="{{showScrollTop}}">
+        <view>
+            <image class="scrollTop" mode="scaleToFill" src="{{scrollTopSrc}}" bindtap="scrollTopClick"></image>
+        </view>
+    </block>
+</view>
+<view class="loading {{hideCube}}">
+    <view class="sk-folding-cube">
+        <view class="sk-cube1 sk-cube"></view>
+        <view class="sk-cube2 sk-cube"></view>
+        <view class="sk-cube4 sk-cube"></view>
+        <view class="sk-cube3 sk-cube"></view>
+    </view>
+    <view class="data_loading">玩命加载中</view>
+    <view class="data_loading2">若加载过慢,可返回重试</view>
+</view>

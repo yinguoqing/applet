@@ -1,0 +1,36 @@
+#first{
+    text-align: center;
+    font-size: 30rpx;
+    padding-top: 30rpx;
+}
+.shouyi{
+    color: #fe782f;
+    font-weight: bold;
+    margin-top: 20rpx;
+    margin-bottom: 30rpx;
+}
+.line{
+    border-top: 1px solid #e5e5e5;
+    padding: 20rpx;
+}
+.line:last-child{
+    border-bottom: 1px solid #e5e5e5;
+}
+.left{
+    width: 16%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.right{
+    width: 80%;
+    margin-left: 4%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.touxiang{
+    width: 100%;
+}
+.time{
+    color: #8d8d8d;
+    margin-top: 10rpx;
+}

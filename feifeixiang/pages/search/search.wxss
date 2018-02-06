@@ -1,0 +1,125 @@
+#top{
+    position: fixed;
+    top: 0;
+    background-color:  #6ad266;
+    width: 100%;
+    height: 80rpx;
+    text-align: center;
+    z-index: 100;
+}
+#searchInput{
+    display: inline-block;
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 20px;
+    width: 78%;
+    height: 80%;
+    text-align: left;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+}
+#icon{
+    width: 60rpx;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20rpx;
+
+}
+.collect{
+    width: 100%;
+    padding: 20rpx 3.5% 0 3.5%;
+    margin: 20rpx auto 0 auto;
+    background-color: white;
+    box-sizing: border-box;
+}
+.collect:first-child{
+    margin-top: 100rpx;
+}
+.left2{
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    position: relative;
+}
+.right2{
+    display: inline-block;
+    width: 70%;
+    height: 210rpx;
+    padding-left: 5%;
+    box-sizing: border-box;
+    vertical-align: top;
+    position: relative;
+}
+.img{
+    width: 100%;
+    height: 210rpx;
+}
+.img2 {
+    width: 75%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.biaoqian2{
+    color: white;
+    position: absolute;
+    font-weight: bold;
+    transform: rotate(-45deg);
+    top: 39rpx;
+    left: 15rpx;
+    text-align: center;
+}
+.pingtuan{
+    margin-top: 20rpx;
+    padding-left: 5rpx;
+    padding-right: 5rpx;
+    color: #6ad266;
+    border: 1px solid #6ad266;
+    border-radius: 3px;
+    display: inline-block;
+}
+.middle{
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+}
+.location2_view{
+    display: inline-block;
+    width: 45%;
+    color: #8d8d8d;
+}
+.juli{
+    color: #8d8d8d;
+    vertical-align: middle;
+}
+.yuanjia{
+    color: #8d8d8d;
+    margin-bottom: 8rpx;
+}
+.jiage{
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+.tiefen1{
+    color: white;
+    display: inline-block;
+    width: 100rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    background: url("https://ffx.weiweitouzi.cn/data/upload/details/2x/biaoqian.png") no-repeat;
+    background-size: 100%;
+    text-align:center;
+}
+.tiefen2{
+    color: #fe782f;
+    font-weight: bold;
+}
+.fuhao{
+    color: #fe782f;
+}
+.baoming{
+    display: inline-block;
+    width: 45%;
+    color: #8d8d8d;
+}

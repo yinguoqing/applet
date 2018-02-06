@@ -1,0 +1,21 @@
+<import src="../../template/list.wxml"/>
+<view id="all">
+    <view id="first">
+        <view>想成为飞飞象的合伙人吗？</view>
+        <view>想通过飞飞象平台持续赚取您的佣金吗？</view>
+        <view>现在提交你的联系方式和相关信息，我们会在1-2天内联系您</view>
+    </view>
+
+    <view id="second">
+        <block wx:for="{{items}}" wx:key="id">
+            <template is="list" data="{{...item.item}}"/>
+        </block>
+        <view class="content2">
+            <view class="text2">
+                <text>补充说明</text>
+            </view>
+            <textarea class="textarea" placeholder="补充说明" bindinput="buchongInput" maxlength="300"/>
+        </view>
+    </view>
+    <button bindtap="finish">完成</button>
+</view>

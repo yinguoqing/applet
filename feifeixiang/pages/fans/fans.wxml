@@ -1,0 +1,17 @@
+<view id="first">
+    <view>粉丝人数(人)</view>
+    <view class="shouyi">{{fans}}</view>
+</view>
+<view>
+    <block wx:for="{{items}}">
+        <view class="line">
+            <view class="left">
+                <image class="touxiang" mode="widthFix" src="{{item.photo}}"></image>
+            </view>
+            <view class="right">
+                <view>{{item.name}}</view>
+                <view class="time">成为粉丝时间: {{item.date}}</view>
+            </view>
+        </view>
+    </block>
+</view>

@@ -1,0 +1,15 @@
+<view id="first">
+    <view>累计收益(元)</view>
+    <view class="shouyi">{{shouyi}}</view>
+</view>
+<view>
+    <block wx:for="{{items}}">
+        <view class="line">
+            <view class="left">
+                <view>{{item.dingdan}}</view>
+                <view>{{item.date}}</view>
+            </view>
+            <view class="right">+{{item.money}}</view>
+        </view>
+    </block>
+</view>

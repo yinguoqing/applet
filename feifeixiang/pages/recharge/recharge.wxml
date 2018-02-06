@@ -1,0 +1,21 @@
+<view id="all">
+    <view id="yue">
+        <text>当前余额: </text>
+        <text class="yue">¥{{yue}}</text>
+    </view>
+    <view id="top">
+        <block wx:for="{{items}}" wx:key="id">
+            <view class="cube {{item.current}}" bindtap="choosePrice" data-index="{{index}}">
+                <view class="price {{item.color}}">{{item.price}}元</view>
+                <view class="tip {{item.color}}">送{{item.tip}}元红包</view>
+            </view>
+        </block>
+    </view>
+    <view id="other">
+        <view class="other">
+            <text>其他金额: </text>
+        </view>
+        <input value="{{money}}" id="money" placeholder-style="color:#8d8d8d" placeholder="请输入充值金额" type="number" bindinput="moneyInputEvent"/>
+    </view>
+    <button class="recharge {{disabled}}" bindtap="recharge" disabled="{{flag}}" loading="{{load}}">立即充值</button>
+</view>

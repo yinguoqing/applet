@@ -1,0 +1,17 @@
+<view id="all">
+    <view id="first">
+        <image class="top_img" mode="widthFix" src="{{src}}"></image>
+        <view class="title">好评红包</view>
+        <view class="text1">给您参加过的活动添加五星好评,</view>
+        <view class="text2">
+            <text>您可获得</text>
+            <text class="red">{{pj_red}}</text>
+            <text>元红包!</text>
+            </view>
+        <view class="text2">(我已知悉红包不能提现、评论审核通过后到账)</view>
+    </view>
+    <view id="second">
+        <view class="text3">点击按钮进入点评</view>
+        <button id="dianping" bindtap="dianping">去点评</button>
+    </view>
+</view>

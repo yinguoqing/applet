@@ -1,0 +1,6 @@
+<view id="all">
+    <image id="weixinIcon" class="icon1" mode="aspectFit" src="../../images/weixin_icon.png"></image>
+    <image id="phoneIcon" class="icon2" mode="aspectFit" src="../../images/phone_icon.png"></image>
+    <button  id="wxLogin" bindtap="weixin" loading="{{wxLoginFlag}}" disabled="{{disabled}}">微信一键登录</button>
+    <button  id="phoneLogin" bindtap="phone" disabled="{{disabled}}">手机号登录</button>
+</view>

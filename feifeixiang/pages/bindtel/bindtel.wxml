@@ -1,0 +1,15 @@
+<view class="content">
+    <view class="text">
+        <text>手机</text>
+    </view>
+    <input id="tel" value="{{tel}}" placeholder="请输入您的手机号" type="number" maxlength="11" bindinput="telInputEvent" />
+</view>
+<view class="content">
+    <view class="text">
+        <text>验证码</text>
+    </view>
+    <input id="code" placeholder="请输入验证码" type="number" maxlength="6"  bindinput="codeInputEvent" class="{{disable1}}" disabled="{{flag1}}"/>
+    <button id="get" class="{{disable2}}" bindtap="getCode" loading="{{load1}}" disabled="{{flag2}}">{{getVerifyCode}}{{second}}</button>
+</view>
+<button id="finish" class="{{disable3}}" bindtap="finish" loading="{{load2}}" disabled="{{flag3}}">绑定</button>
+<view class="bottom">为确保功能正常使用,请您绑定手机号~</view>

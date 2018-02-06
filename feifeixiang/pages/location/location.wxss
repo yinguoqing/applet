@@ -1,0 +1,33 @@
+.button{
+    background-color:#6ad266;
+    color:white;
+    width:93%;
+    height:90rpx;
+    line-height:90rpx;
+    margin-top:30rpx;
+}
+.button-hover{
+    opacity: 0.5;
+}
+#all{
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0 3.5% 20rpx 3.5%;
+    box-sizing: border-box;
+}
+.content{
+    width: 30%;
+    text-align: center;
+    padding: 20rpx;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    margin-right: 5%;
+    border: 1px solid #6ad266;
+}
+.content:nth-child(3n){
+    margin-right: 0;
+}
+.on{
+    background-color: #6ad266;
+    color: white;
+}

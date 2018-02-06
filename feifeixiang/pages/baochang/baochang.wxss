@@ -1,0 +1,11 @@
+@import "../../common.wxss";
+#first{
+    width: 93%;
+    margin: 0 auto;
+    margin-top: 30rpx;
+    color: #fe782f;
+}
+#second{
+    background-color: white;
+    margin-top: 30rpx;
+}

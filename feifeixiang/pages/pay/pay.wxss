@@ -1,0 +1,143 @@
+#all{
+    display: block;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    font-size: 26rpx;
+    color: #585858;
+    margin-bottom:100rpx;
+}
+#first{
+    margin-top: 0;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+#title{
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.margin{
+    margin-top: 20rpx;
+    background-color: white;
+    padding: 0 3.5% 0 3.5%;
+}
+.content{
+    border-top: 1rpx solid #e5e5e5;
+    height: 80rpx;
+    line-height: 80rpx;
+    position: relative;
+    color: #8d8d8d;
+    position: relative;
+}
+.content2{
+    height: 80rpx;
+    line-height: 80rpx;
+    position: relative;
+    color: #8d8d8d;
+    position: relative;
+}
+.content:first-child{
+    border-top: 0;
+}
+.content_view{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.price{
+    color: #fe782f;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+#hongbao{
+    color: #fe782f;
+}
+.title{
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+.zhifu_content{
+    border-top: 1rpx solid #e5e5e5;
+    position: relative;
+    color: #8d8d8d;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+}
+.title_text{
+    font-size: 30rpx;
+    font-weight: bold;
+    padding-left: 20rpx;
+    border-left: 10rpx solid #6ad266;
+}
+.logo{
+    width: 15%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.gou{
+    display: inline-block;
+    vertical-align: middle;
+    width: 15%;
+    text-align: right;
+}
+.zhifu_text{
+    margin-left: 5%;
+    width: 65%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.zhifu_title{
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #585858;
+    margin-bottom: 18rpx;
+}
+.pay{
+    background-color: #6ad266;
+    color: white;
+    width: 100%;
+    height: 100rpx;
+    line-height:100rpx;
+    border-radius: 0;
+    position: fixed;
+    bottom: 0;
+}
+.hui{
+    background-color: #8d8d8d!important;
+}
+.button-hover{
+    opacity: 0.5;
+}
+.red{
+    color: #fe782f;
+}
+.mingxi{
+    color: #6ad266;
+    display: inline-block;
+    vertical-align: middle;
+}
+#jiantou{
+    width: 40rpx;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10rpx;
+}
+.money{
+    display: inline-block;
+    vertical-align: middle;
+}
+.jiantou{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20rpx;
+}
+.name{
+    color: #8d8d8d;
+    margin-left: 20rpx;
+}
+.num{
+    position: absolute;
+    left: 350rpx;
+    top: 0
+}

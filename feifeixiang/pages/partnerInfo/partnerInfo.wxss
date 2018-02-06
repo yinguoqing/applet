@@ -1,0 +1,117 @@
+#all{
+    min-width: 100%;
+    min-height: 100%;
+    background-color: #f5f5f5;
+}
+#left,#right{
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 30rpx;
+}
+.margin{
+    background-color: white;
+    margin-top: 20rpx;
+}
+#first{
+    background-color: #6ad266;
+    color: white;
+    padding: 90rpx 3.5% 20rpx 3.5%;
+}
+.text1{
+    font-size: 30rpx;
+    text-align: center;
+    letter-spacing:16rpx;
+    font-weight: bold;
+}
+.text2{
+    font-size: 30rpx;
+    text-align: center;
+    margin-top: 30rpx;
+    padding-bottom: 30rpx;
+    border-bottom: 4rpx solid #e5e5e5;
+    font-weight: bold;
+}
+.text3{
+    margin-top: 20rpx;
+}
+#second{
+    color: #6ad266;
+    padding-bottom: 30rpx;
+}
+button{
+    background-color:#6ad266;
+    color:white;
+    width:93%;
+    height:90rpx;
+    line-height:90rpx;
+    margin-top:30rpx;
+
+}
+.button-hover{
+    opacity: 0.5;
+}
+.second_text1{
+    margin-bottom: 20rpx;
+}
+.icon{
+    width: 40rpx;
+    vertical-align: middle;
+}
+.more{
+    width: 40rpx;
+}
+.text{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20rpx;
+}
+#third,#fourth{
+    padding: 30rpx 3.5%;
+}
+.moreView1 {
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+
+}
+.moreView2{
+    display: inline-block;
+    text-align: right;
+    width: 50%;
+    vertical-align: middle;
+
+}
+.title{
+    color: #6ad266;
+    margin-bottom: 30rpx;
+    border-left:10rpx solid #6ad266;
+    padding-left:10rpx;
+}
+#fifth{
+    padding: 30rpx 3.5%;
+}
+.detail{
+    margin-bottom: 30rpx;
+}
+#zhuanfa{
+    color: white;
+    background-color: #6ad266;
+    width: 80%;
+    position:relative;
+    display:block;
+    margin: 30rpx auto 0 auto;
+    padding-left:14px;
+    padding-right:14px;
+    box-sizing:border-box;
+    font-size:18px;
+    text-align:center;
+    text-decoration:none;
+    line-height:2.55555556;
+    border-radius:5px;
+    -webkit-tap-highlight-color:transparent;
+    overflow:hidden;
+}
+#share{
+    display: none;
+}

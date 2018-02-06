@@ -1,0 +1,17 @@
+<view id="all">
+    <view id="first">
+        <image class="top_img" mode="widthFix" src="{{src}}"></image>
+        <view class="title">完善红包</view>
+        <view class="text1">完善个人的全部信息,</view>
+        <view class="text2">
+            <text>您可获得</text>
+            <text class="red">{{wsgrxx_red}}</text>
+            <text>元红包!</text>
+        </view>
+        <view class="text2">（我已知悉红包不能提现、信息提交成功后奖励到账）</view>
+    </view>
+    <view id="second">
+        <view class="text3">点击按钮进入完善</view>
+        <button id="wanshan" bindtap="wanshan">去完善</button>
+    </view>
+</view>

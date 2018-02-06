@@ -1,0 +1,73 @@
+<view id="all">
+    <view id="first">
+        <image class="logo" mode="scaleToFill" src="{{src}}"></image>
+        <view class="pay">
+            <text>支付成功</text>
+        </view>
+    </view>
+    <view class="margin1">
+        <text class="title_text">订单详情</text>
+        <view class="detail">
+            <block wx:if="{{teaItems}}">
+                <block wx:for="{{teaItems}}" wx:key="name">
+                    <view class="content2">
+                        <view class="name">{{item.name}}</view>
+                        <view class="num">x {{item.num}}</view>
+                        <view class="content_view">
+                            <text class="fuhao">¥ </text>
+                            <text class="price">{{item.price}}</text>
+                        </view>
+                    </view>
+                </block>
+            </block>
+            <block wx:else>
+                <image class="img" mode="scaleToFill" src="{{src1}}"></image>
+                <view class="title">{{title}}</view>
+            </block>
+
+            <view class="orderNo">订单编号: {{orderid}}</view>
+        </view>
+    </view>
+    <view class="margin2">
+        <view class="content">
+            <view class="inline1">订单金额:</view>
+            <view class="inline2">
+                <text class="fuhao">¥ </text>
+                <text class="price">{{price}}</text>
+            </view>
+        </view>
+        <view class="content">
+            <view class="inline1">当前状态:</view>
+            <view class="inline2 yizhifu">已支付</view>
+        </view>
+    </view>
+    <!--<block wx:if="{{isPingtuan == 1}}">
+        <view class="margin3">
+            <view class="margin3_content">
+                <view>现在邀请
+                    <text class="red">{{ptNum}}</text>
+                    组家庭拼团,拼团成功每家返
+                    <text class="red">¥{{fanxian}}</text>
+                    快去邀请好友拼团吧!
+                </view>
+                <button id="share" open-type="share" bindtap="share">邀请好友拼团</button>
+            </view>
+        </view>
+    </block>-->
+    <block wx:if="{{isPingtuan == 1}}">
+        <view id="ptDetails">
+        <navigator url="../notice/notice?nid=2">
+            <view class="size" wx:for="{{ptItems}}" wx:key="id">
+                <text class="ptDetails">{{item.ptDetails}}</text>
+                <text class="ptPrice">{{item.ptPrice}}</text>
+            </view>
+        </navigator>
+        <button id="share" open-type="share" bindtap="share">邀请好友拼团</button>
+    </view>
+    </block>
+
+    <view class="share_view" style="display:{{display}}" bindtap="hideShare">
+        <image class="share_img" mode="widthFix" src="{{src2}}"></image>
+    </view>
+</view>
+<button id="sure" bindtap="sure"  loading="{{loading}}">确认完成</button>

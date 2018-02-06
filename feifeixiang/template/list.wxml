@@ -1,0 +1,8 @@
+<template name="list">
+    <view class="content">
+        <view class="text">
+            <text>{{text}}</text>
+        </view>
+        <input id="{{id}}" placeholder-style="color: #8d8d8d" placeholder="{{placeholder}}" type="{{type}}" maxlength="{{maxlength}}"  bindinput="{{bindinput}}"/>
+    </view>
+</template>

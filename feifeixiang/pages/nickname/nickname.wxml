@@ -1,0 +1,12 @@
+<view id="all">
+    <view id="allInput">
+        <view id="phoneInput" class="input">
+            <image class="icon" mode="aspectFit" src="../../images/nichen.png"></image>
+            <input id="phone" placeholder-style="color:#ffffff" placeholder="请输入您的昵称" maxlength="15"  bindinput="nicknameInputEvent" cursor-spacing="200"/>
+        </view>
+
+        <view>
+            <button id="btn2" class="{{disable3}}" bindtap="create" loading="{{load2}}" disabled="{{flag3}}">创建账号</button>
+        </view>
+    </view>
+</view>

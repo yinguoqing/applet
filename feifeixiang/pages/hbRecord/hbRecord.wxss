@@ -1,0 +1,57 @@
+@import "../../common.wxss";
+.xiaofei{
+    display: inline-block;
+    width: 50%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.mingxi{
+    display: inline-block;
+    width: 50%;
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.left{
+    display: inline-block;
+    width: 50%;
+}
+.right{
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+.jilu{
+    width: 100%;
+    padding: 20rpx 3.5%;
+    background-color: white;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;
+}
+.top{
+    background-color: white;
+
+}
+.hover{
+    background-color: #e5e5e5;
+}
+.on{
+    color: #6ad266;
+    border-bottom: 5rpx solid #6ad266!important;
+}
+.num{
+    color: #fe782f;
+}
+.date{
+    margin-top: 20rpx;
+}
+.title{
+    font-weight: bold;
+}

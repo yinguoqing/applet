@@ -1,0 +1,52 @@
+<view id="all">
+    <view id="first">
+        <image class="img" mode="widthFix" src="{{src}}"></image>
+        <view class="txt txt1">{{title}}</view>
+        <view class="txt">有效时间 {{date}}</view>
+        <view class="txt">份数 {{num}} 份</view>
+    </view>
+    <view id="second">
+        <view class="title">
+            <text class="title_text">退款明细</text>
+        </view>
+        <view class="title2">
+            <view class="left">订单取消扣款</view>
+            <view class="right">
+                <text>¥ </text>
+                <text class="price">{{price}}</text>
+            </view>
+        </view>
+        <view class="title2">
+            <view class="left">退回金额</view>
+            <view class="right">
+                <text>¥ </text>
+                <text class="price">{{price2}}</text>
+            </view>
+        </view>
+    </view>
+    <view id="second">
+        <view class="title">
+            <text class="title_text">扣款说明</text>
+        </view>
+        <view class="title2">1.活动前7天取消订单,退款90%</view>
+        <view class="title2">2.活动前3-6天取消订单,退款50%</view>
+        <view class="title2">3.活动前2天取消订单,不予退款</view>
+    </view>
+    <view id="second">
+        <view class="title">
+            <text class="title_text">退款方式</text>
+        </view>
+        <view class="title2">原路返回</view>
+        <view class="title2">1-7个工作日退回原支付账户,原支付方式是您付款时选择的支付方式,列如银联/微信/余额</view>
+    </view>
+    <view id="second">
+        <view class="title">
+            <text class="title_text">退款条款</text>
+        </view>
+        <view class="title2">1.未预约可随时取消</view>
+        <view class="title2">2.未预约过期自动取消</view>
+        <view class="title2">3.拼团成功不可取消</view>
+    </view>
+    <button class="button" bindtap="finish">确认退款</button>
+
+</view>

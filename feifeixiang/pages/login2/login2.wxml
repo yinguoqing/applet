@@ -1,0 +1,24 @@
+<view id="all">
+    <view id="allInput">
+        <view id="phoneInput" class="input">
+            <image class="icon" mode="aspectFit" src="../../images/phone.png"></image>
+            <input id="phone" placeholder-style="color:#ffffff" placeholder="请输入手机号" type="number"  maxlength="11"  bindinput="mobileInputEvent" cursor-spacing="200"/>
+        </view>
+        <view id="codeInput" class="input">
+            <image class="icon" mode="aspectFit" src="../../images/yanzhengma.png"></image>
+            <view id="codeView">
+                <input id="code" class="{{disable1}}" placeholder-style="color:#ffffff"  maxlength="6" placeholder="请输入验证码" type="number"  bindinput="passInputEvent" disabled="{{flag1}}" cursor-spacing="150"/>
+            </view>
+            <button id="btn1" class="{{disable2}}" bindtap="getCode" loading="{{load1}}" disabled="{{flag2}}">{{getVerifyCode}}{{second}}</button>
+        </view>
+        <view>
+            <button id="btn2" class="{{disable3}}" bindtap="login" loading="{{load2}}" disabled="{{flag3}}">提交</button>
+        </view>
+        <view id="text">
+            <text id="text1">我已阅读并同意</text>
+            <text id="text2" bindtap="xuzhi">《用户须知》</text>
+        </view>
+
+    </view>
+
+</view>

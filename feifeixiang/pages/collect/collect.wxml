@@ -1,0 +1,37 @@
+<view id="all">
+    <block wx:for="{{items}}" wx:key="id">
+        <view class="collect">
+            <navigator url="../details/index?id={{item.id}}&text={{item.type}}">
+                <view class="left">
+                    <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                    <image class="img2" mode="widthFix" src="{{item.src2}}"></image>
+                    <text class="biaoqian">{{item.biaoqian}}</text>
+                </view>
+                <view class="right">
+                    <view>{{item.title}}</view>
+                    <block wx:if="{{item.pingtuan}}">
+                        <view class="pingtuan">{{item.pingtuan}}</view>
+                    </block>
+                    <view class="middle">
+                        <view class="baoming">已报名{{item.num}}份</view>
+                        <view class="jiage">
+                            <block wx:if="{{item.yuanjia}}">
+                                <view class="yuanjia">原价¥ {{item.yuanjia}}</view>
+                            </block>
+                            <block wx:if="{{item.tiefen}}">
+                                <view >
+                                    <text class="tiefen1">铁粉价</text>
+                                    <text class="fuhao"> ¥ </text>
+                                    <text class="tiefen2">{{item.tiefen}}</text>
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+                <view class="bottom">
+                    <text class="bottom_text" data-index="{{index}}" bindtap="cancel">取消收藏</text>
+                </view>
+            </navigator>
+        </view>
+    </block>
+</view>

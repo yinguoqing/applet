@@ -1,0 +1,146 @@
+<view id="all">
+    <view id="top">
+        <view id="topBgView">
+            <image id="topBg" mode="scaleToFill" src="{{src}}"></image>
+        </view>
+        <view id="touxiang" >
+            <image id="" class="userinfo-avatar" mode="aspectFill" src="{{src2}}"></image>
+        </view>
+        <view id="loginId" bindtap="login">
+            <view id="login">
+                <text>{{loginText}}</text>
+            </view>
+            <view id="back" >
+                <image id="" class="back" mode="widthFix" src="{{src3}}"></image>
+            </view>
+        </view>
+        <view id="wanshanId" bindtap="wanshan">
+           <view id="wanshan">
+               <text>{{wanshanText}}</text>
+           </view>
+           <view id="back2">
+               <image id="" class="back" mode="widthFix" src="{{src4}}"></image>
+           </view>
+        </view>
+        <view id="tuihcu" bindtap="logout">
+            <text>{{tuichu}}</text>
+        </view>
+    </view>
+    <view id="second">
+        <view id="" id="title" bindtap="chakan" >
+            <text id="dingdan" class="">我的订单</text>
+            <view>
+                <text id="chakan" class="">查看全部订单</text>
+                <image id="jiantou" class="back" mode="widthFix" src="{{src4}}"></image>
+            </view>
+        </view>
+        <view id="dingdan2">
+            <view class="column" wx:for="{{array}}" wx:key="text">
+                <navigator url="{{item.url}}">
+                    <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                    <view class="text">
+                        <text>{{item.text}}</text>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <view id="fourth">
+        <view id="quan">
+            <view class="col" wx:for="{{array2}}" wx:key="id" bindtap="{{item.text == '账户余额'?'recharge':''}}">
+                <text>{{item.text}}</text>
+                <view class="num2">
+                    <text>¥ </text><text>{{item.num}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view id="fifth">
+        <block wx:if="{{isPartner==true||isPartner=='true'}}">
+            <navigator url="../partnerInfo/partnerInfo">
+                <view class="col2">
+                    <image class="img img2" mode="widthFix" src="{{icon_1}}"></image>
+                        <text class="text2 partner">我是合伙人</text>
+                    <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+                </view>
+            </navigator>
+        </block>
+        <block wx:else>
+            <navigator url="../partner/partner">
+                <view class="col2">
+                    <image class="img img2" mode="widthFix" src="{{icon_1}}"></image>
+                    <text class="text2 partner">成为合伙人</text>
+                    <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+                </view>
+            </navigator>
+        </block>
+        <navigator url="../collect/collect">
+            <view class="col2">
+                <image class="img img2" mode="widthFix" src="{{icon_2}}"></image>
+                <text class="text2">我的收藏</text>
+                <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+            </view>
+        </navigator>
+        <navigator url="../hbRecord/hbRecord">
+            <view class="col2">
+                <image class="img img2" mode="widthFix" src="{{icon_3}}"></image>
+                <text class="text2">红包记录</text>
+                <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+            </view>
+        </navigator>
+        <navigator url="../czRecord/czRecord">
+            <view class="col2">
+                <image class="img img2" mode="widthFix" src="{{icon_4}}"></image>
+                <text class="text2">成长记录</text>
+                <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+            </view>
+        </navigator>
+    </view>
+    <view id="sixth">
+        <navigator url="../cooperation/cooperation">
+            <view class="col2">
+                <image class="img img2" mode="widthFix" src="{{icon4}}"></image>
+                <text class="text2">业务合作</text>
+                <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+            </view>
+        </navigator>
+
+        <navigator url="../notice/notice?nid=1">
+            <view class="col2">
+                <image class="img img2" mode="widthFix" src="{{icon6}}"></image>
+                <text class="text2">关于飞飞象</text>
+                <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+            </view>
+        </navigator>
+        <navigator url="../notice/notice?nid=3">
+            <view class="col2">
+                <image class="img img2" mode="widthFix" src="{{icon8}}"></image>
+                <text class="text2">飞飞象新闻</text>
+                <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+            </view>
+        </navigator>
+
+        <view class="col2" bindtap="kefu">
+            <image class="img img2" mode="widthFix" src="{{icon7}}"></image>
+            <text class="text2">客服电话</text>
+            <text id="tel" class="text3">{{phone}}(9:00--20:00)</text>
+            <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+        </view>
+        <!--<view class="col2" bindtap="clear">
+            <image class="img img2" mode="widthFix" src="{{icon5}}"></image>
+            <text class="text2">清空缓存</text>
+            <text class="text3">{{cache}}</text>
+            <image class="back back2" mode="widthFix" src="{{src4}}"></image>
+        </view>-->
+    </view>
+</view>
+<view class="loading {{hideCube}}">
+    <view class="sk-folding-cube">
+        <view class="sk-cube1 sk-cube"></view>
+        <view class="sk-cube2 sk-cube"></view>
+        <view class="sk-cube4 sk-cube"></view>
+        <view class="sk-cube3 sk-cube"></view>
+    </view>
+    <view class="data_loading">玩命加载中</view>
+    <view class="data_loading2">若加载过慢,可下拉刷新</view>
+</view>

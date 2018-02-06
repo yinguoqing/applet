@@ -1,0 +1,95 @@
+<image  id="topBg"  mode="widthFix"  src="{{src}}"></image>
+<view id="title">
+    <view id="title_text">{{title}}</view>
+    <view id="title_date">活动时间: {{time}}</view>
+</view>
+<view id="top">
+    <view id="toDetail" bindtap="checkDetail">查看详情页</view>
+    <block wx:if="{{uid&&iszhubo}}">
+        <view class="zhubo" bindtap="upload">上传直播</view>
+    </block>
+
+</view>
+<view id="main">
+    <view class="content" wx:for="{{items}}" wx:key="id">
+        <view class="left">
+            <image  class="touxiang" mode="scaleToFill" src="{{item.src}}"></image>
+            <view class="zanshang" bindtap="zanshang" data-index="{{index}}">去赞赏</view>
+        </view>
+        <view class="right">
+            <view class="name">{{item.name}}</view>
+            <view class="date">
+                <view class="date_left">{{item.date}}</view>
+                <block wx:if="{{uid&&iszhubo&&item.ismyzhibo}}">
+                    <view class="date_right" bindtap="del" data-index="{{index}}">删除</view>
+                </block>
+            </view>
+            <view class="miaoshu">{{item.miaoshu}}</view>
+            <block wx:if="{{item.img}}">
+                <view class="photos" data-index="{{index}}" bindtap="previewArr">
+                    <view wx:for="{{item.img}}" class="photoView" data-index="{{index}}" bindtap="preview">
+                        <image mode="aspectFill" class="photo" src="{{item}}"></image>
+                    </view>
+                </view>
+            </block>
+            <block wx:elif="{{item.video}}">
+                <view class="video_view">
+                    <video class="video" src="{{item.video}}"></video>
+                </view>
+            </block>
+
+            <view class="bottom">
+                <image  class="pinglun" mode="scaleToFill" src="{{src2}}" bindtap="pinglun" data-index="{{index}}"></image>
+                <block wx:if="{{uid}}">
+                    <image  class="dianzan" mode="scaleToFill" src="{{item.zansrc}}" bindtap="dianzan" data-index="{{index}}"></image>
+                </block>
+                <block wx:else>
+                    <image  class="dianzan" mode="scaleToFill" src="{{zansrc2}}" bindtap="dianzan" data-index="{{index}}"></image>
+                </block>
+                <text class="zannum">({{item.zannum}})</text>
+            </view>
+            <block wx:if="{{item.pingjia!=null&&item.pingjia!=undefined&&item.pingjia.length>0}}">
+                <view class="sanjiao"></view>
+                <view class="pingjia" >
+                    <view wx:for="{{item.pingjia}}">{{item}}</view>
+                </view>
+            </block>
+            <block wx:if="{{item.dashang!=null&&item.dashang!=undefined&&item.dashang.length>0}}">
+               <view class="dashang">
+                   <view wx:for="{{item.dashang}}">{{item}}</view>
+               </view>
+           </block>
+        </view>
+    </view>
+</view>
+<block wx:if="{{isPinglun}}">
+    <view id="bottom" bindtap="show">
+        <input class="input" bindinput="pinglunInput" bindblur="hide" placeholder="回复主播" focus="true"/>
+        <button class="button" hover-class="hover" catchtap="send">发送</button>
+    </view>
+</block>
+<view class="showDashang {{show}}">
+    <view class="box">
+        <image class="del" mode="scaleToFill" src="{{src5}}" bindtap="hideDashang"></image>
+        <view class="up">
+            <image class="touxiang2" mode="scaleToFill" src="{{zanshangSrc}}"></image>
+            <view class="name">{{zanshangName}}</view>
+        </view>
+        <block wx:if="{{showOther}}">
+            <view class="down2">
+                <view class="otherInput">
+                    <view class="fuhao">¥</view>
+                    <input class="input2" bindinput="otherInput" type="number" maxlength="10" focus="true"/>
+                </view>
+                <button class="button2 {{otherMoney>0?'':'hui'}}" hover-class="hover" disabled="{{otherMoney>0?false:true}}" bindtap="confirm">确定</button>
+                <view class="other" bindtap="choose">选择金额</view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="down">
+                <view class="money {{currentRed==index?'on':''}}" wx:for="{{moneyItems}}" wx:key="*this" data-index="{{index}}" bindtap="clickRed">{{item}}</view>
+            </view>
+            <view class="other" bindtap="other">其他金额</view>
+        </block>
+    </view>
+</view>

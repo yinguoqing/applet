@@ -1,0 +1,30 @@
+<view id="all">
+    <view class="top">
+        <view class="xiaofei {{current == 0?'on':''}}" hover-class="hover" hover-stay-time="200" bindtap="menuTap">红包支出</view>
+        <view class="mingxi {{current == 1?'on':''}}" hover-class="hover" hover-stay-time="200" bindtap="menuTap1">红包收入</view>
+    </view>
+    <block wx:if="{{current == 0}}">
+        <view class="jilu" wx:for="{{zhichu}}" wx:key="id">
+            <view class="left">
+                <view class="title">{{item.title}}</view>
+                <view class="date">{{item.date}}</view>
+            </view>
+            <view class="right">
+                <text class="num">-{{item.num}}</text>
+                <text>元</text>
+            </view>
+        </view>
+    </block>
+    <block wx:else>
+        <view class="jilu" wx:for="{{shouru}}" wx:key="id">
+            <view class="left">
+                <view class="title">{{item.title}}</view>
+                <view class="date">{{item.date}}</view>
+            </view>
+            <view class="right">
+                <text class="num">+{{item.num}}</text>
+                <text>元</text>
+            </view>
+        </view>
+    </block>
+</view>

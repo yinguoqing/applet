@@ -1,0 +1,103 @@
+#all{
+    display: block;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    font-size: 26rpx;
+    color: #585858;
+    margin-bottom:100rpx;
+}
+#first{
+    position: relative;
+    background-color: #6ad266;
+    color: white;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+}
+.add{
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    right: 112rpx;
+    top: 10rpx;
+}
+.add_text1{
+    margin-left: 45rpx;
+}
+.add_text2{
+    position: absolute;
+    right: 45rpx;
+    top: 0;
+}
+#finish{
+    bottom: 0;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    color: white;
+    background-color: #6ad266;
+    position: fixed;
+    border-radius: 0;
+}
+.button-hover{
+    opacity: 0.5;
+}
+.edit{
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    left: 50rpx;
+    top: 50rpx;
+}
+.gou{
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    right: 50rpx;
+    top: 50rpx;
+}
+.content{
+    position: relative;
+    background-color: white;
+    height: 100rpx;
+    line-height: 50rpx;
+    padding: 20rpx 3.5% 20rpx 3.5%;
+}
+.content_text1{
+    position: absolute;
+    left: 125rpx;
+    top: 20rpx;
+}
+.content_text2{
+    position: absolute;
+    left: 300rpx;
+    top: 20rpx;
+}
+.border{
+    border-top: 1px solid #e5e5e5;
+    position: absolute;
+    bottom: 0;
+    left: 3.5%;
+    height: 1px;
+    width: 93%;
+}
+.click{
+    background-color: red;
+}
+.gouxuan {
+    height: 100%;
+    margin-left: 20%;
+}
+.edit_img{
+    height: 100%;
+    width: 20%;
+}
+.name{
+    font-weight: bold;
+}
+.disable{
+    background-color: #8d8d8d!important;
+}

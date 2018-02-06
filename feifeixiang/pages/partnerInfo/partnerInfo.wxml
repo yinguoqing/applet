@@ -1,0 +1,55 @@
+<view id="all">
+    <view id="first">
+        <view class="text1">成功提现</view>
+        <view class="text2">¥ {{yitixian}}</view>
+        <view class="text3">可提现余额 ¥ {{weitixian}}</view>
+    </view>
+    <view id="second" class="margin">
+        <view id="left">
+            <view class="second_text1">粉丝人数</view>
+            <view>{{fansNum}}</view>
+        </view>
+        <view id="right">
+            <view class="second_text1">粉丝累计消费</view>
+            <view>¥ {{spend}}</view>
+        </view>
+        <label for="share">
+            <view id="zhuanfa" bindtap="share">立即分享赚钱</view>
+        </label>
+        <button id="share" open-type="share"></button>
+    </view>
+    <navigator url="../shouyi/shouyi">
+        <view id="third" class="margin">
+            <view class="moreView1">
+                <image class="icon" mode="widthFix" src="{{src1}}"></image>
+                <view class="text">收益明细</view>
+            </view>
+            <view class="moreView2">
+                <image class="more" mode="widthFix" src="{{moreSrc}}"></image>
+            </view>
+        </view>
+    </navigator>
+    <navigator url="../fans/fans">
+        <view id="fourth" class="margin">
+            <view class="moreView1">
+                <image class="icon" mode="widthFix" src="{{src2}}"></image>
+                <view class="text">我的粉丝</view>
+            </view>
+            <view class="moreView2">
+                <image class="more" mode="widthFix" src="{{moreSrc}}"></image>
+            </view>
+        </view>
+    </navigator>
+
+    <view id="fifth" class="margin">
+        <!--<view class="title">邀请规则</view>
+        <view class="detail">{{guize}}</view>
+        <view class="title">关于提现</view>
+        <view class="detail">{{about}}</view>-->
+        <block wx:for="{{tiaokuan}}">
+            <view class="title">{{item.title}}</view>
+            <view class="detail">{{item.content}}</view>
+        </block>
+
+    </view>
+</view>

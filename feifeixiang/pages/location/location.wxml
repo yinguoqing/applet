@@ -1,0 +1,8 @@
+<view id="all">
+    <block wx:for="{{items}}" wx:key="shopid">
+        <view class="content {{current==index?'on':''}}" bindtap="choose" data-index="{{index}}">{{item.shopname}}</view>
+    </block>
+</view>
+<block wx:if="{{items}}">
+    <button class="button" bindtap="finish">确定</button>
+</block>

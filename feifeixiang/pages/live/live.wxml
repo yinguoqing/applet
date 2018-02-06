@@ -1,0 +1,20 @@
+<view id="all">
+    <block wx:for="{{items}}" wx:key="id">
+        <navigator url="../livedetail/livedetail?id={{item.id}}&pid={{item.pid}}">
+            <view class="collect">
+                <view class="left">
+                    <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                    <image class="img2" mode="widthFix" src="{{item.src2}}"></image>
+                    <text class="biaoqian">{{item.biaoqian}}</text>
+                </view>
+                <view class="right">
+                    <view>{{item.title}}</view>
+                    <view class="live_date">活动时间: {{item.date}}</view>
+                    <view class="middle">
+                        <view class="baoming">累计{{item.num}}人围观</view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </block>
+</view>

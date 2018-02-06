@@ -1,0 +1,251 @@
+<view id="all">
+    <block wx:if="{{text=='冬令营'||text=='夏令营'}}">
+        <view id="chooseNum" class="margin">
+            <view class="title">选择人数</view>
+            <!--<view class="content">
+                <text>成人</text>
+                <image class="anniu1" mode="scaleToFill" src="{{src}}" bindtap="reduce1"></image>
+                <text class="num jiahei">{{num1}}</text>
+                <image class="anniu2" mode="scaleToFill" src="{{src1}}" bindtap="plus1"></image>
+            </view>-->
+            <view class="content">
+                <text>儿童</text>
+                <image class="anniu1" mode="scaleToFill" src="{{src}}" bindtap="reduce"></image>
+                <text class="num jiahei">{{num}}</text>
+                <image class="anniu2" mode="scaleToFill" src="{{src1}}" bindtap="plus"></image>
+            </view>
+        </view>
+        <view id="chooseMan" class="margin">
+            <view class="title">选择出行人</view>
+            <view class="content">
+                <!--<text>请选择成人</text>
+                 <text class="shuzi">{{num1}}</text>
+                 <text>名,儿童</text>-->
+                <text>请选择儿童</text>
+                <text class="shuzi">{{num}}</text>
+                <text>名</text>
+                <button class="choose" bindtap="choose" disabled="{{xuanze}}">去选择</button>
+            </view>
+            <block wx:if="{{traveller.length > 0}}">
+                <view class="content">
+                    <text class="yixuanze">当前选择</text>
+                </view>
+                <!-- <view class="content">
+                     <text>成人:</text>
+                     <block wx:for="{{adultArr}}">
+                         <text class="jiahei"> {{item}}</text>
+                     </block>
+                 </view>-->
+                <view class="content">
+                    <text>儿童:</text>
+                    <block wx:for="{{traveller}}">
+                        <text class="jiahei"> {{item.name}}</text>
+                    </block>
+                </view>
+            </block>
+        </view>
+        <view id="chooseNum2" class="margin">
+            <view class="title">添加床位</view>
+            <view class="content">
+                <text>单床 ({{addbed}}元/每张)</text>
+                <image class="anniu1" mode="scaleToFill" src="{{src}}" bindtap="{{bednum==0?'':'reduceBed'}}"></image>
+                <text class="num jiahei">{{bednum}}</text>
+                <image class="anniu2" mode="scaleToFill" src="{{src1}}" bindtap="plusBed"></image>
+            </view>
+        </view>
+        <view id="contact" class="margin">
+            <view class="title">家长联系方式</view>
+            <view class="content input">
+                <text>姓名</text>
+                <input class="jiahei" placeholder="请输入联系人姓名" placeholder-style="color:#8d8d8d" maxlength="15" bindinput="nameInputEvent" />
+            </view>
+            <view class="content input">
+                <text>手机号</text>
+                <input class="jiahei" placeholder="请输入联系人手机号" placeholder-style="color:#8d8d8d" type="number" maxlength="11" bindinput="telInputEvent" />
+            </view>
+        </view>
+    </block>
+    <block wx:elif="{{text=='添加出行人'||text=='创意手工'}}">
+        <view id="chooseNum" class="margin">
+            <view class="title">选择人数</view>
+            <!--<view class="content">
+                <text>成人</text>
+                <image class="anniu1" mode="scaleToFill" src="{{src}}" bindtap="reduce1"></image>
+                <text class="num jiahei">{{num1}}</text>
+                <image class="anniu2" mode="scaleToFill" src="{{src1}}" bindtap="plus1"></image>
+            </view>-->
+            <view class="content">
+                <text>儿童</text>
+                <image class="anniu1" mode="scaleToFill" src="{{src}}" bindtap="reduce"></image>
+                <text class="num jiahei">{{num}}</text>
+                <image class="anniu2" mode="scaleToFill" src="{{src1}}" bindtap="plus"></image>
+            </view>
+        </view>
+        <view id="chooseMan" class="margin">
+            <view class="title">选择出行人</view>
+            <view class="content">
+                <!--<text>请选择成人</text>
+                 <text class="shuzi">{{num1}}</text>
+                 <text>名,儿童</text>-->
+                <text>请选择儿童</text>
+                <text class="shuzi">{{num}}</text>
+                <text>名</text>
+                <button class="choose" bindtap="choose" disabled="{{xuanze}}">去选择</button>
+            </view>
+            <block wx:if="{{traveller.length > 0}}">
+                <view class="content">
+                    <text class="yixuanze">当前选择</text>
+                </view>
+                <!-- <view class="content">
+                     <text>成人:</text>
+                     <block wx:for="{{adultArr}}">
+                         <text class="jiahei"> {{item}}</text>
+                     </block>
+                 </view>-->
+                <view class="content">
+                    <text>儿童:</text>
+                    <block wx:for="{{traveller}}">
+                        <text class="jiahei"> {{item.name}}</text>
+                    </block>
+                </view>
+            </block>
+        </view>
+    </block>
+    <block wx:else>
+        <view id="chooseNum" class="margin">
+            <view class="title">选择数量</view>
+            <!--<view class="content">
+                <text>成人</text>
+                <image class="anniu1" mode="scaleToFill" src="{{src}}" bindtap="reduce1"></image>
+                <text class="num jiahei">{{num1}}</text>
+                <image class="anniu2" mode="scaleToFill" src="{{src1}}" bindtap="plus1"></image>
+            </view>-->
+            <view class="content">
+                <text>份数</text>
+                <image class="anniu1" mode="scaleToFill" src="{{src}}" bindtap="reduce"></image>
+                <text class="num jiahei">{{num}}</text>
+                <image class="anniu2" mode="scaleToFill" src="{{src1}}" bindtap="plus"></image>
+            </view>
+        </view>
+    </block>
+
+    <block wx:if="{{riqi}}">
+        <view class="margin margin2">
+            <view class="title">选择报名期数</view>
+            <!-- <view class="dateAll">
+                 <view class="fullDate" wx:for="{{riqi}}" data-index="{{index}}" bindtap="chooseAll" wx:key="id">
+                     <view class="year">{{item.year}}</view>
+                     <view class="date">
+                         <block wx:for="{{item.detail}}" wx:key="id">
+                             <block wx:if="{{item.describe == '已满'}}">
+                                 <view class="dateContent" data-index="{{index}}" catchtap="catch">
+                                     <view class="dateContent_date">{{item.date}}</view>
+                                     <view class="disabled">{{item.describe}}</view>
+                                     <image class="lvgou {{item.show}}" mode="scaleToFill" src="{{src2}}"></image>
+                                 </view>
+                             </block>
+                             <block wx:else>
+                                 <view class="dateContent" data-index="{{index}}" bindtap="chooseDate">
+                                     <view class="dateContent_date">{{item.date}}</view>
+                                     <view class="describe">{{item.describe}}</view>
+                                     <image class="lvgou {{item.show}}" mode="scaleToFill" src="{{src2}}"></image>
+                                 </view>
+                             </block>
+                         </block>
+                     </view>
+                 </view>
+             </view>-->
+            <view class="date">
+                <block wx:for="{{riqi}}" wx:key="*this">
+                    <block wx:if="{{item.describe == '已满'}}">
+                        <view class="dateContent" data-index="{{index}}" catchtap="catch">
+                            <view class="dateContent_date">{{item.date}}</view>
+                            <view class="disabled">{{item.describe}}</view>
+                            <image class="lvgou {{item.show}}" mode="scaleToFill" src="{{src2}}"></image>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="dateContent" data-index="{{index}}" bindtap="chooseDate">
+                            <view class="dateContent_date">{{item.date}}</view>
+                            <view class="describe">{{item.describe}}</view>
+                            <image class="lvgou {{item.show}}" mode="scaleToFill" src="{{src2}}"></image>
+                        </view>
+                    </block>
+                </block>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{text=='冬令营'||text=='夏令营'}}">
+        <block wx:if="{{citys}}">
+            <view class="margin margin2">
+                <view class="title">选择出发城市</view>
+                <view id="citys">
+                    <view class="city {{item.click}}" data-index="{{index}}" bindtap="click" wx:for="{{citys}}" wx:key="id">
+                        {{item.city}}
+                    </view>
+                </view>
+            </view>
+            <view class="margin">
+                <view class="title">选择上车地点</view>
+                <view class="content">
+                    <picker  bindchange="bindPickerChange" range="{{addressArr}}">
+                        <view class="picker">
+                            <text>当前地点: </text>
+                            <text class="jiahei">{{addressArr[index]}}</text>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+        </block>
+    </block>
+
+
+    <block wx:if="{{hongbao}}">
+        <view class="margin">
+            <view class="title">红包</view>
+            <view class="content" bindtap="{{yue < hongbao ? 'hongbaotips' : 'xuanhongbao'}}">
+                <text>共 </text>
+                <text class="hongbao">{{yue}}</text>
+                <text> 元,本活动可使用 </text>
+                <text class="hongbao">{{hongbao}}</text>
+                <text> 元</text>
+                <image class="hongbaogouxuan" mode="scaleToFill" src="{{src3}}"></image>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{yhcost}}">
+        <view class="margin">
+            <view class="title">早报优惠</view>
+            <view class="content">
+                <text>原价 </text>
+                <text class="hongbao">{{finalPrice}}</text>
+                <text> 元,早报已优惠 </text>
+                <text class="hongbao">{{yhcost}}</text>
+                <text> 元</text>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{text!='创意手工'}}">
+        <view class="margin margin2">
+            <view class="title">备注</view>
+            <textarea placeholder="{{placeholder}}" placeholder-style="color:#8d8d8d" bindinput="tipsInputEvent"/>
+        </view>
+    </block>
+    <view id="tiaokuan">
+        <checkbox-group class="checkbox-group" bindchange="checkboxChange">
+            <checkbox checked="{{checked}}"/>
+        </checkbox-group>
+        <text class="tiaokuan_text">我已阅读并同意</text>
+        <text class="tiaokuan_text2" bindtap="{{text=='创意手工'?'shixiang':'tiaokuan'}}">{{text=='创意手工'?'《注意事项》':'《合同条款》'}}</text>
+    </view>
+</view>
+<view id="bottom">
+    <view class="zhifujiage">
+        <text> 需支付 </text>
+        <text>¥</text>
+        <text class="price"> {{price}}</text>
+    </view>
+    <view class="quzhifu" hover-class="quzhifuHover" hover-stay-time="200" bindtap="pay">
+        <text class="zhifu">去支付</text>
+    </view>
+</view>

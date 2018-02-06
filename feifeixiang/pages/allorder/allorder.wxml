@@ -1,0 +1,163 @@
+<view id="all">
+    <scroll-view class="swiper-tab" scroll-x  scroll-left="{{scrollLeft}}">
+        <block wx:for="{{items}}" wx:key="id">
+            <view class="swiper-tab-list {{currentTab==item.id ? 'on' : ''}}" data-current="{{item.id}}" bindtap="swichNav"
+                  hover-class="hover" hover-stay-time="300">{{item.content}}</view>
+        </block>
+            <view class="space"></view>
+    </scroll-view>
+    <view class="jtView">
+        <image class="jiantou" bindtap="clickJt" mode="widthFix" src="{{src}}"></image>
+    </view>
+    <swiper current="{{currentTab}}" class="swiper-box" duration="200" style="height:{{winHeight - 41}}px" bindchange="bindChange">
+        <block wx:for="{{items2}}" wx:key="id">
+            <swiper-item>
+                <block wx:if="{{item.length==0}}">
+                    <view class="noData">
+                        <image class="noData_img" mode="widthFix" src="{{src2}}"></image>
+                        <view>暂无数据</view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <block wx:for="{{item}}">
+                        <view class="swiper-box-item">
+                            <view class="top">
+                                <view class="top1 {{(item.status == 5||item.zlstatus == 1)? 'red' : ''}}">{{item.type}}</view>
+                                <view class="top2">
+                                    <text>¥</text>
+                                    <block wx:if="{{item.price}}">
+                                        <text class="price">{{item.price}}</text>
+                                    </block>
+                                </view>
+                            </view>
+                            <view class="detail">
+                                <view class="detail1">
+                                    <block wx:if="{{item.yystatus}}">
+                                        <image class="img" mode="scaleToFill" src="{{birthPic}}"></image>
+                                    </block>
+                                    <block wx:else>
+                                        <image class="img" mode="scaleToFill" src="{{item.pic}}"></image>
+                                    </block>
+                                </view>
+                                <view class="detail2">
+                                    <view>{{item.title}}</view>
+                                    <block wx:if="{{item.det}}">
+                                        <view class="date2">
+                                            <text>订单编号: </text>
+                                            <text>{{item.orderid}}</text>
+                                        </view>
+                                        <view class="date2">
+                                            <text>订单时间: </text>
+                                            <text>{{item.date}}</text>
+                                        </view>
+                                    </block>
+                                    <block wx:else>
+                                        <view class="date">
+                                            <!--<block wx:if="{{item.zlstatus}}">
+                                                <text>租赁时间: </text>
+                                                <text>{{item.date}}</text>
+                                            </block>
+                                            <block wx:elif="{{item.yystatus}}">
+                                                <text>预约时间: </text>
+                                                <text>{{item.date}}</text>
+                                            </block>
+                                            <block wx:else>-->
+                                                <text>订单时间: </text>
+                                                <text>{{item.date}}</text>
+                                            <!--</block>-->
+                                        </view>
+                                    </block>
+                                    <block wx:if="{{item.count}}">
+                                        <view class="count">
+                                            <text>份数: </text>
+                                            <text>{{item.count}}</text>
+                                        </view>
+                                    </block>
+                                    <block wx:elif="{{item.yystatus}}">
+                                        <view class="count">
+                                            <text>人数: </text>
+                                            <text>{{item.num}}</text>
+                                        </view>
+                                    </block>
+                                </view>
+                            </view>
+                            <block wx:if="{{item.det}}">
+                                <block wx:for="{{item.det}}" wx:key="name">
+                                    <view class="content2">
+                                        <view class="name">{{item.name}}</view>
+                                        <view class="num">x {{item.count}}</view>
+                                        <view class="content_view">
+                                            <text class="fuhao">¥ </text>
+                                            <text class="price">{{item.price}}</text>
+                                        </view>
+                                    </view>
+                                </block>
+                            </block>
+                            <block wx:if="{{item.status == 1}}">
+                                <view class="bottom">
+                                    <view class="bottom1" hover-class="hover" hover-stay-time="200" data-index="{{index}}" bindtap="cancel">删除订单</view>
+                                    <view class="bottom2" hover-class="hover" hover-stay-time="200" data-index="{{index}}" bindtap="pay">继续支付</view>
+                                </view>
+                            </block>
+                            <block wx:if="{{item.status == 4}}">
+                                <view class="bottom">
+                                    <view class="bottom1" hover-class="hover" hover-stay-time="200" data-index="{{index}}" bindtap="cancel">删除订单</view>
+                                    <view class="bottom2 hui" data-index="{{index}}">已过期</view>
+                                </view>
+                            </block>
+                            <block wx:elif="{{item.status == 2}}">
+                                <view class="bottom">
+                                    <view class="bottom1" hover-class="hover" hover-stay-time="200"
+                                          data-index="{{index}}" bindtap="queren">确认</view>
+                                    <view class="bottom2" hover-class="hover" hover-stay-time="200"
+                                          data-index="{{index}}" bindtap="tuikuan">退款</view>
+                                </view>
+                            </block>
+                            <block wx:elif="{{item.yystatus == 2}}">
+                                <!--<view class="bottom">
+                                    <view class="bottom1" hover-class="hover" hover-stay-time="200"
+                                          data-index="{{index}}" bindtap="queren">确认</view>
+                                    <view class="bottom2" hover-class="hover" hover-stay-time="200"
+                                          data-index="{{index}}" bindtap="qxYuyue">取消预约</view>
+                                </view>-->
+                                <view></view>
+                            </block>
+                            <block wx:elif="{{item.status == 3}}">
+                                <block wx:if="{{item.det}}">
+                                    <view></view>
+                                </block>
+                                <block wx:else>
+                                    <view class="bottom" data-index="{{index}}" bindtap="qupingjia" hover-class="hover" hover-stay-time="200">
+                                        去评价
+                                    </view>
+                                </block>
+
+                            </block>
+                            <block wx:elif="{{item.status == 6}}">
+                                <view id="yipingjia" class="bottom">
+                                    已评价
+                                </view>
+                            </block>
+                        </view>
+                    </block>
+                </block>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view id="menu" style="display: {{display}};" bindtap="hideMenu">
+        <view id="menu_content">
+            <view class="menu_all">
+                <view class="menu_all_1" catchtap="catch">全部分类</view>
+                <view class="menu_all_2" bindtap="clickJt1">
+                    <image class="jt_up" mode="widthFix" src="{{src1}}"></image>
+                </view>
+            </view>
+            <view class="content" catchtap="catch">
+                <block wx:for="{{items}}" wx:key="id">
+                    <view class="content_list {{currentTab==item.id ? 'on' : ''}}" data-current="{{item.id}}" catchtap="swichNav" hover-class="hover" hover-stay-time="200">{{item.content}}</view>
+                </block>
+            </view>
+        </view>
+
+    </view>
+</view>

@@ -1,0 +1,83 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/upload/upload",
+    "pages/tiefen/tiefen",
+    "pages/vip/vip",
+    "pages/partnerInfo/partnerInfo",
+    "pages/zhuanfa/zhuanfa",
+    "pages/live/live",
+    "pages/tuikuan/tuikuan",
+    "pages/pay/pay",
+    "pages/order/index",
+    "pages/addmgr/addmgr",
+    "pages/addmgrdetail/addmgrdetail",
+    "pages/details/index",
+    "pages/login2/login2",
+    "pages/login/login",
+    "pages/paysuccess/paysuccess",
+    "pages/notice/notice",
+    "pages/livedetail/livedetail",
+    "pages/pingjia/pingjia",
+    "pages/partner/partner",
+    "pages/info/info",
+    "pages/location/location",
+    "pages/chooseman/chooseman",
+    "pages/zhubanfang/zhubanfang",
+    "pages/near/index",
+    "pages/list/list",
+    "pages/invite/invite",
+    "pages/search/search",
+    "pages/allorder/allorder",
+    "pages/party/party",
+    "pages/haizixinxi/haizixinxi",
+    "pages/fans/fans",
+    "pages/shouyi/shouyi",
+    "pages/baochang/baochang",
+    "pages/cooperation/cooperation",
+    "pages/collect/collect",
+    "pages/about/about",
+    "pages/czRecord/czRecord",
+    "pages/hbRecord/hbRecord",
+    "pages/message/message",
+    "pages/recharge/recharge",
+    "pages/wanshan/wanshan",
+    "pages/haoping/haoping",
+    "pages/editman/editman",
+    "pages/changetel/changetel",
+    "pages/bindtel/bindtel",
+    "pages/nickname/nickname"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#6ad266",
+    "navigationBarTitleText": "飞飞象户外探索教育",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#2AA143",
+    "borderStyle":"white",
+    "list": [{
+      "selectedIconPath": "images/shouye selected_icon.png",
+      "iconPath": "images/shouye_icon.png",
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    }, {
+      "selectedIconPath": "images/tf_logo2.png",
+      "iconPath": "images/tf_logo.png",
+      "pagePath": "pages/tiefen/tiefen",
+      "text": "铁粉"
+    }, {
+      "selectedIconPath": "images/news selected_icon.png",
+      "iconPath": "images/news_icon.png",
+      "pagePath": "pages/message/message",
+      "text": "消息"
+    }, {
+      "selectedIconPath": "images/personal center Selected_icon.png",
+      "iconPath": "images/personal center_icon.png",
+      "pagePath": "pages/vip/vip",
+      "text": "个人中心"
+    }]
+  }
+}

@@ -1,0 +1,20 @@
+<import src="../../wxParse/wxParse.wxml"/>
+
+<block wx:if="{{nid == 'red'}}"k>
+    <block wx:for="{{items}}">
+        <view class="content">
+            <view class="title">{{item.title}}</view>
+            <view class="detail">
+                <view class="text" wx:for="{{item.content}}">
+                    {{item}}
+                </view>
+            </view>
+        </view>
+    </block>
+</block>
+<block wx:else>
+    <view class="content">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+</block>
+

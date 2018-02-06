@@ -1,0 +1,43 @@
+<view id="all">
+    <view id="second">
+        <block wx:for="{{stars}}" wx:key="id">
+            <view class="inline" bindtap="tapStar" data-index="{{index}}">
+                <image  class="star"  mode="widthFix" src="{{item.src}}" bindtap="tapStar"></image>
+            </view>
+        </block>
+    </view>
+    <view>
+        <textarea class="textarea" bindinput="input" placeholder="说点什么吧。。。" maxlength="300"/>
+    </view>
+    <view id="photos">
+        <block wx:if="{{photos}}">
+            <block wx:for="{{photos}}"  wx:key="*this">
+                <view class="photoView" bindtap="preview"  data-index="{{index}}">
+                    <image class="photo" mode="aspectFill" src="{{item}}"></image>
+                    <image class="del" mode="widthFix" src="{{del}}" catchtap="del"  data-index="{{index}}"></image>
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{video}}">
+            <video class="video" src="{{video}}"></video>
+            <button class="delBtn" bindtap="delVideo">删除视频</button>
+        </block>
+        <view id="{{margin}}" class="choosePhoto photoView"  bindtap="choosePhoto">
+            <view class="imgView">
+                <image class="img"  mode="widthFix"  src="{{src1}}"></image>
+            </view>
+            <view class="imgView2">
+                <image class="img2" mode="widthFix" src="{{src2}}"></image>
+            </view>
+        </view>
+        <view class="chooseVideo photoView"  bindtap="chooseVideo">
+            <view class="videoView">
+                <image class="img"  mode="widthFix"  src="{{videoSrc}}"></image>
+            </view>
+            <view class="videoView2">
+                <image class="img2" mode="widthFix" src="{{src2}}"></image>
+            </view>
+        </view>
+    </view>
+    <button class="btn" bindtap="finish">确认发布</button>
+</view>

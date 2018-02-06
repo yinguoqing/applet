@@ -1,0 +1,49 @@
+.content{
+    position: relative;
+    width: 92%;
+    height: 90rpx;
+    line-height:90rpx;
+    margin: 0 auto;
+    border-bottom: 1px #e5e5e5 solid;
+}
+.back2{
+    position: absolute;
+    top: 5%;
+    right: 0;
+}
+.back{
+    width: 40rpx;
+}
+input {
+    width:80%;
+    height:90rpx;
+    margin-left:20%;
+}
+.text{
+    position: absolute;
+    height: 90rpx;
+}
+#get{
+    position: absolute;
+    top:10rpx;
+    right:0;
+    height:70rpx;
+    line-height:70rpx;
+    background-color: #fe782f;
+    color: white;
+    z-index: 10;
+}
+#finish{
+    background-color: #6ad266;
+    color: white;
+    width: 92%;
+    height: 90rpx;
+    line-height:90rpx;
+    margin-top: 30rpx;
+}
+.button-hover {
+    opacity: 0.5;
+}
+.disable{
+    filter: grayscale(50%);
+}

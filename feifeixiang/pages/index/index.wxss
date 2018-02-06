@@ -1,0 +1,341 @@
+@import "../../loading.wxss";
+
+#all{
+    display: block;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+#first{
+    background-color: white;
+}
+#second,#third,#fourth,#fifth{
+    margin-top: 25rpx;
+    background-color: white;
+}
+#third{
+    padding-bottom: 25rpx;
+}
+#topAll{
+    width: 100%;
+    height: 66rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: #6ad266;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+#top{
+    width: 30%;
+    height: 80%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items:center;
+    margin-left: 3%;
+}
+#searchId{
+    height: 80%;
+    display: flex;
+    flex: 1;
+    flex-flow: row nowrap;
+    align-items:center;
+    border: 1px #E8E7EA solid;
+    border-radius: 20px;
+    background-color: white;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+#locationImg{
+     width: 50rpx;
+     height: 50rpx;
+ }
+#inputImg{
+    width: 42rpx;
+    height: 42rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+}
+#addressText{
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    color: white;
+    margin-left: 8rpx;
+    flex: 1;
+}
+#topBg{
+    width: 100%;
+    height: 366rpx;
+}
+#topIcon{
+    display: flex;
+    flex-flow: row wrap;
+}
+#topIcon2{
+    display: flex;
+    flex-flow: row nowrap;
+    margin-top: 30rpx;
+    margin-bottom: 10px;
+
+}
+.column{
+    width: 22%;
+    height: 224rpx;
+    text-align: center;
+    margin-left: 4%;
+}
+.column:nth-child(4n+1){
+    margin-left: 0;
+}
+.img{
+    width: 100%;
+    height: 154rpx;
+}
+.slide-image{
+    width: 100%;
+    height: 100%;
+}
+swiper{
+    height: 492rpx;
+    width: 93%;
+    margin: 0 auto 20rpx auto;
+}
+#hotContent{
+    margin-top:30rpx;
+    white-space: nowrap;
+    overflow: auto;
+}
+.hotColumn{
+    width:44%;
+    text-align:center;
+    display: inline-block;
+    margin-left: 4%;
+    vertical-align: top;
+    padding-bottom: 20rpx;
+}
+.hotColumn:last-child{
+    margin-right: 4%;
+}
+.hotImg{
+    width:100%;
+    height:165rpx;
+}
+.text2{
+    overflow: hidden;
+    margin: 0 auto;
+    text-overflow:ellipsis;
+    margin-top: 10rpx;
+}
+.text3{
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+.text4{
+    position: relative;
+    margin-top: 10rpx;
+}
+.locationRight{
+    display: inline-block;
+    text-align: right;
+    vertical-align:middle;
+    width: 40%;
+}
+.text31{
+    white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    width:60%;
+    display:inline-block;
+    vertical-align:middle;
+}
+.title{
+    padding-top: 30rpx;
+}
+.titleText{
+    border-left: 10rpx #6ad266 solid;
+    padding-left: 20rpx;
+    margin-left: 4%;
+    font-weight: bold;
+    font-size: 30rpx;
+}
+#near{
+    position: relative;
+}
+#nearContent{
+    display:flex;
+    flex-flow:row wrap;
+    width: 93%;
+    margin: 0 auto;
+}
+.nearColumn{
+    width:48%;
+    padding-bottom:20rpx;
+}
+.nearColumn:nth-child(even){
+    margin-left:4%;
+}
+.nearImg{
+    width: 100%;
+    height: 168rpx;
+}
+#address_line{
+    background-color: #f5f5f5;
+    position: relative;
+    vertical-align: middle;
+    height: 60rpx;
+    width: 93%;
+    margin: 30rpx auto;
+}
+#location{
+    width: 30rpx;
+    height: 30rpx;
+    top: 15rpx;
+    left: 15rpx;
+    position: absolute;
+}
+#location2{
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+}
+#refresh{
+    width: 40rpx;
+    height: 40rpx;
+    top: 10rpx;
+    right: 15rpx;
+    position: absolute;
+}
+#locationText{
+    line-height: 60rpx;
+    left: 60rpx;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    position: absolute;
+}
+.animation{
+    -webkit-transform: rotate(360deg);
+    animation: rotation 3s linear infinite;
+}
+@-webkit-keyframes rotation{
+     from {-webkit-transform: rotate(0deg);}
+     to {-webkit-transform: rotate(360deg);}
+ }
+#more{
+    vertical-align: middle;
+}
+.money{
+    color: red;
+}
+#recommend{
+    position: relative;
+}
+.recommendRight{
+    position: absolute;
+    top: 30rpx;
+    right: 20rpx;
+}
+.recommendImg{
+    width:30rpx;
+    height:30rpx;
+    vertical-align: middle;
+}
+.recommendColumn{
+    width: 93%;
+    margin: 30rpx auto;
+    position: relative;
+}
+.recommendColumn:last-child{
+    padding-bottom: 30rpx;
+}
+.recommendImg2{
+    width: 100%;
+    height: 349rpx;
+}
+.price_label{
+    width: 251rpx;
+    height: 251rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#priceText{
+    width: 225rpx;
+    color: white;
+    position: absolute;
+    font-weight: bold;
+    transform: rotate(42.3deg);
+    top: 63rpx;
+    right: -23rpx;
+    text-align: center;
+}
+.money2{
+    font-size: 36rpx;
+}
+.num{
+    width: 40%;
+    height: 60rpx;
+    line-height: 60rpx;
+    position: absolute;
+    top: 264rpx;
+    left: 0;
+    color: white;
+    background-color: rgba(106, 210, 102, 0.6);
+    text-align: center;
+    font-weight: bold;
+    border-radius: 0 20px 20px 0;
+}
+.tuijian{
+    margin-top: 10rpx;
+    display: block;
+}
+.juli{
+    color: #8d8d8d;
+    vertical-align: middle;
+}
+.middle_img{
+    width: 93%;
+    height: 205rpx;
+    margin-left: 3.5%;
+}
+.scrollTop{
+    width: 100rpx;
+    height: 100rpx;
+    position: fixed;
+    bottom: 25rpx;
+    right: 25rpx;
+}
+.hover{
+    background-color: #e5e5e5;
+    opacity: 0.6;
+}
+#checkNear{
+    color: white;
+    background-color: #6ad266;
+    width: 248rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+}
+.button-hover{
+    opacity: 0.7;
+}
+#checkmore{
+    display: block;
+    text-align: center;
+    padding: 20rpx 0;
+    font-weight: bold;
+}
+.noData{
+    text-align: center;
+}
+.noData_img{
+    width: 300rpx;
+    margin-top: 300rpx;
+}
+.empty{
+    font-size: 40rpx;
+    font-weight: bold;
+}

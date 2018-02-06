@@ -1,0 +1,27 @@
+@import "../../common.wxss";
+#first{
+    width: 93%;
+    margin: 0 auto;
+    margin-top: 30rpx;
+    color: #fe782f;
+}
+#second{
+    background-color: white;
+    margin-top: 30rpx;
+}
+.content2{
+    position: relative;
+    width: 93%;
+    height: 200rpx;
+    margin: 32rpx auto 0 auto;
+    padding-bottom: 32rpx;
+}
+.text2{
+    position: absolute;
+}
+.textarea{
+    width: 71%;
+    margin-left: 29%;
+    height: 200rpx;
+    box-sizing: border-box;
+}

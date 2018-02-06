@@ -1,0 +1,189 @@
+.collect{
+    width: 100%;
+    padding: 20rpx 3.5% 0 3.5%;
+    margin: 20rpx auto 0 auto;
+    background-color: white;
+    box-sizing: border-box;
+}
+.collect:first-child{
+    margin-top: 160rpx;
+}
+.left2{
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
+    position: relative;
+}
+.right2{
+    display: inline-block;
+    width: 70%;
+    height: 210rpx;
+    padding-left: 5%;
+    box-sizing: border-box;
+    vertical-align: top;
+    position: relative;
+}
+.img{
+    width: 100%;
+    height: 210rpx;
+}
+.img2 {
+    width: 75%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.location2_view{
+    display: inline-block;
+    width: 45%;
+    color: #8d8d8d;
+}
+.jiage{
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+}
+.jiage2{
+    display: inline-block;
+    width: 50%;
+    vertical-align: middle;
+}
+.middle{
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+}
+.biaoqian{
+    color: white;
+    position: absolute;
+    font-weight: bold;
+    transform: rotate(-45deg);
+    top: 27rpx;
+    left: 3rpx;
+    text-align: center;
+}
+.biaoqian2{
+    color: white;
+    position: absolute;
+    font-weight: bold;
+    transform: rotate(-45deg);
+    top: 39rpx;
+    left: 15rpx;
+    text-align: center;
+}
+.pingtuan{
+    margin-top: 20rpx;
+    padding-left: 5rpx;
+    padding-right: 5rpx;
+    color: #6ad266;
+    border: 1px solid #6ad266;
+    border-radius: 3px;
+    display: inline-block;
+}
+.yuanjia{
+    color: #8d8d8d;
+    margin-bottom: 8rpx;
+}
+.tiefen1{
+    color: white;
+    display: inline-block;
+    width: 100rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+    background: url("https://ffx.weiweitouzi.cn/data/upload/details/2x/biaoqian.png") no-repeat;
+    background-size: 100%;
+    text-align:center;
+}
+.tiefen2{
+    color: #fe782f;
+    font-weight: bold;
+}
+.fuhao{
+    color: #fe782f;
+}
+#address_line{
+    background-color: #f5f5f5;
+    position: fixed;
+    vertical-align: middle;
+    height: 60rpx;
+    top: 80rpx;
+    width: 100%;
+    z-index: 100;
+}
+#refresh_view{
+    text-align: right;
+    width: 20%;
+    vertical-align: middle;
+    display: inline-block;
+}
+#location_view{
+    width: 80%;
+    vertical-align: middle;
+    display: inline-block;
+}
+#location{
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+    vertical-align: middle;
+}
+#refresh{
+    width: 40rpx;
+    height: 40rpx;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+#locationText{
+    line-height: 60rpx;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    display: inline-block;
+    vertical-align: middle;
+}
+.animation{
+    -webkit-transform: rotate(360deg);
+    animation: rotation 3s linear infinite;
+}
+@-webkit-keyframes rotation{
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+#top{
+    position: fixed;
+    top: 0;
+    background-color:  #6ad266;
+    width: 100%;
+    height: 80rpx;
+    text-align: center;
+    z-index: 100;
+}
+#searchInput{
+    display: inline-block;
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 20px;
+    width: 78%;
+    height: 80%;
+    text-align: left;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+}
+#icon{
+    width: 60rpx;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20rpx;
+
+}
+#location2{
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-right: 20rpx;
+}
+.juli{
+    color: #8d8d8d;
+    vertical-align: middle;
+}

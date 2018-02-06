@@ -1,0 +1,190 @@
+<view id="all">
+    <scroll-view class="swiper-tab" scroll-x  scroll-left="{{scrollLeft}}">
+        <block wx:for="{{items}}" wx:key="id">
+            <view class="swiper-tab-list {{currentTab==item.id ? 'on' : ''}}" data-current="{{item.id}}" bindtap="swichNav"
+                  hover-class="hover" hover-stay-time="300">{{item.content}}</view>
+        </block>
+        <view class="space"></view>
+    </scroll-view>
+    <view class="jtView">
+        <image class="jiantou" bindtap="clickJt" mode="widthFix" src="{{src}}"></image>
+    </view>
+    <swiper current="{{currentTab}}" class="swiper-box" duration="200" style="height:{{winHeight - 41}}px" bindchange="bindChange">
+        <block wx:for="{{items2}}" wx:key="id">
+            <swiper-item>
+                <block wx:if="{{item[0]==null||item==null}}">
+                    <view class="noData">
+                        <image class="noData_img" mode="widthFix" src="{{emptySrc}}"></image>
+                        <view>暂无数据</view>
+                    </view>
+                </block>
+                <block wx:else>
+                    <block wx:for="{{item}}">
+                        <block wx:if="{{item.leftdata}}">
+                            <view class="body">
+                                <scroll-view class="left" scroll-y="true" style="height:{{winHeight - (item.rightdata[0].data[0].count >=0 ? 91:41)}}px">
+                                    <view wx:for="{{item.leftdata}}" class="leftview {{index==linheightid?'clickview':''}}" id="{{index}}" bindtap="clickbtn" >{{item}}</view>
+                                </scroll-view>
+                                <scroll-view class="right" scroll-y="true" style="height:{{winHeight - (item.rightdata[0].data[0].count >=0 ? 91:41)}}px" scroll-into-view="{{intoid}}" bindscroll="{{scroll}}">
+                                    <view class="border" wx:for="{{item.rightdata}}" id="id{{index}}" bindtap="borderTap" data-index="{{index}}">
+                                        <view class="id">
+                                            <text class="id_text">{{item.id}}</text>
+                                        </view>
+                                        <view class="rightview" wx:for="{{item.data}}">
+                                            <block wx:if="{{item.count>=0}}">
+                                                <view class="collect">
+                                                    <view class="left2">
+                                                        <image class="img222" mode="scaleToFill" src="{{item.src}}"></image>
+                                                    </view>
+                                                    <view class="right2">
+                                                        <view class="title">{{item.title}}</view>
+                                                        <view class="kyred">可用红包1元</view>
+                                                        <view class="middle">
+                                                            <view class="jiage2">
+                                                                <view class="yuanjia">原价¥ {{item.yuanjia}}</view>
+                                                                <view class="hcTiefen" >
+                                                                    <text class="tiefen1">铁粉价</text>
+                                                                    <text class="fuhao"> ¥ </text>
+                                                                    <text class="tiefen2">{{item.tiefen}}</text>
+                                                                </view>
+                                                            </view>
+                                                            <view class="hcNum">
+                                                                <block wx:if="{{item.count > 0}}">
+                                                                    <image class="btn" bindtap="reduce" data-index="{{index}}" mode="widthFix" src="{{minusSrc}}"></image>
+                                                                    <text class="hcNum_text"> {{item.count}} </text>
+                                                                </block>
+                                                                <image class="btn" bindtap="plus" data-index="{{index}}" mode="widthFix" src="{{plusSrc}}"></image>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                </view>
+                                            </block>
+                                            <block wx:else>
+                                                <navigator url="../details/index?id={{item.id}}">
+                                                    <view class="collect">
+                                                        <view class="left2">
+                                                            <image class="img222" mode="scaleToFill" src="{{item.src}}"></image>
+                                                            <block wx:if="{{item.src2}}">
+                                                                <image class="img2" mode="widthFix" src="{{item.src2}}"></image>
+                                                                <text class="biaoqian">{{item.biaoqian}}</text>
+                                                            </block>
+                                                        </view>
+                                                        <view class="right2">
+                                                            <view class="title">{{item.title}}</view>
+                                                            <view class="middle">
+                                                                <block wx:if="{{item.kucun}}">
+                                                                    <view class="qixian">
+                                                                        <text>期限 </text>
+                                                                        <text class="red">{{item.qixian}}</text>
+                                                                        <text> 天</text>
+                                                                    </view>
+                                                                    <view>
+                                                                        <text>库存 </text>
+                                                                        <text class="red">{{item.kucun}}</text>
+                                                                        <text> 份</text>
+                                                                    </view>
+                                                                </block>
+                                                                <block wx:elif="{{item.num}}">
+                                                                    <view class="baoming">已报名{{item.num}}份</view>
+                                                                    <view class="jiage">
+                                                                        <view class="yuanjia">原价¥ {{item.yuanjia}}</view>
+                                                                        <view >
+                                                                            <text class="tiefen1">铁粉价</text>
+                                                                            <text class="fuhao"> ¥ </text>
+                                                                            <text class="tiefen2">{{item.tiefen}}</text>
+                                                                        </view>
+                                                                    </view>
+                                                                </block>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                </navigator>
+                                            </block>
+                                        </view>
+                                    </view>
+                                </scroll-view>
+                            </view>
+                                <block wx:if="{{item.rightdata[0].data[0].count >=0}}">
+                                    <view id="bottom">
+                                        <view class="zhifujiage">
+                                            <text> 订单金额 </text>
+                                            <text>¥</text>
+                                            <text class="price"> {{price}}</text>
+                                        </view>
+                                        <block wx:if="{{price==0}}">
+                                            <view class="zhihui">
+                                                <text class="zhifu">去支付</text>
+                                            </view>
+                                        </block>
+                                        <block else>
+                                            <view class="quzhifu" hover-class="quzhifuHover" hover-stay-time="200" bindtap="pay">
+                                                <text class="zhifu">去支付</text>
+                                            </view>
+                                        </block>
+
+                                    </view>
+                                </block>
+
+                        </block>
+                        <block wx:else>
+                            <navigator url="../details/index?id={{item.id}}&text={{text}}">
+                                <view class="collect">
+                                    <view class="left2">
+                                        <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                                        <image class="img2" mode="widthFix" src="{{item.src2}}"></image>
+                                        <text class="biaoqian2">{{item.biaoqian}}</text>
+                                    </view>
+                                    <view class="right22">
+                                        <view>{{item.title}}</view>
+                                        <view class="pingtuan" style="display:{{item.pingtuan.length > 0?'inline-block':'none'}}">{{item.pingtuan}}</view>
+                                        <view class="middle">
+                                            <view class="baoming">已报名{{item.num}}份</view>
+                                            <block wx:if="{{item.yuanjia}}">
+                                                <view class="jiage">
+                                                    <view class="yuanjia">原价¥ {{item.yuanjia}}</view>
+                                                    <view >
+                                                        <text class="tiefen1">铁粉价</text>
+                                                        <text class="fuhao"> ¥ </text>
+                                                        <text class="tiefen2">{{item.tiefen}}</text>
+                                                    </view>
+                                                </view>
+                                            </block>
+
+                                        </view>
+                                    </view>
+                                </view>
+                            </navigator>
+
+                        </block>
+                    </block>
+                </block>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view id="menu" style="display: {{display}};" bindtap="hideMenu">
+        <view id="menu_content">
+            <view class="menu_all">
+                <view class="menu_all_1" catchtap="catch">全部分类</view>
+                <view class="menu_all_2" bindtap="clickJt1">
+                    <image class="jt_up" mode="widthFix" src="{{src1}}"></image>
+                </view>
+            </view>
+            <view class="content" catchtap="catch">
+                <block wx:for="{{items}}" wx:key="id">
+                    <view class="content_list {{currentTab==item.id ? 'on' : ''}}" data-current="{{item.id}}" catchtap="swichNav" hover-class="hover" hover-stay-time="200">{{item.content}}</view>
+                </block>
+            </view>
+        </view>
+
+    </view>
+</view>
+<view class="loading {{hideCube}}">
+    <view class="sk-folding-cube">
+        <view class="sk-cube1 sk-cube"></view>
+        <view class="sk-cube2 sk-cube"></view>
+        <view class="sk-cube4 sk-cube"></view>
+        <view class="sk-cube3 sk-cube"></view>
+    </view>
+    <view class="data_loading">玩命加载中</view>
+    <view class="data_loading2">若加载过慢,可返回重试</view>
+</view>

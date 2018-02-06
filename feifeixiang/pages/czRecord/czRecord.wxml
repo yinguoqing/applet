@@ -1,0 +1,38 @@
+<view id="all">
+    <block wx:for="{{items}}" wx:key="id">
+        <view class="swiper-box-item">
+            <view class="detail">
+                <view class="detail1">
+                    <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                </view>
+                <view class="detail2">
+                    <view>{{item.title}}</view>
+                    <view class="date">
+                        <text>消费时间: </text>
+                        <text>{{item.date}}</text>
+                    </view>
+                    <view class="count">
+                        <text>份数: </text>
+                        <text>{{item.num}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="bottom">
+                <view class="left">已付费</view>
+                <view class="right">
+                    <text>¥ </text>
+                    <text class="price">{{item.cost}}</text>
+                </view>
+            </view>
+            <block wx:if="{{item.red}}">
+                <view class="bottom">
+                    <view class="left">已用红包</view>
+                    <view class="right">
+                        <text>¥ </text>
+                        <text class="hongbao">{{item.red}}</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </block>
+</view>

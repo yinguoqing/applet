@@ -1,0 +1,30 @@
+<view id="all">
+    <view id="first">
+        <image class="top_img" mode="widthFix" src="{{src}}"></image>
+        <view class="title">邀请红包</view>
+        <view class="text1">邀请好友加入飞飞象,</view>
+        <view class="text2">您最多可获得50元红包!</view>
+    </view>
+    <view id="second">
+        <view class="text3">通过以下方式邀请朋友</view>
+        <label for="share">
+            <view class="way" bindtap="share">
+                <image class="img" mode="widthFix" src="{{src1}}"></image>
+                <view class="img_text">微信好友</view>
+            </view>
+        </label>
+
+        <view class="way" bindtap="saveImage">
+            <image class="img" mode="widthFix"  src="{{src2}}"></image>
+            <view class="img_text">朋友圈</view>
+        </view>
+        <view class="way" bindtap="previewImage">
+            <image class="img" mode="widthFix"  src="{{src3}}"></image>
+            <view class="img_text">二维码</view>
+        </view>
+        <button id="share" open-type="share" bindtap=""></button>
+    </view>
+    <view class="share_view" style="display:{{display}}" bindtap="hideShare">
+        <image class="share_img" mode="widthFix" src="{{src4}}"></image>
+    </view>
+</view>

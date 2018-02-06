@@ -1,0 +1,43 @@
+<view id="all">
+    <radio-group class="radio-group" bindchange="radioChange">
+        <block wx:if="{{items.length==0}}">
+            <view class="noData">
+                <image class="noData_img" mode="widthFix" src="{{src}}"></image>
+                <view>暂无数据</view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="address" wx:for="{{items}}" wx:key="{{id}}">
+                <view class="contact">
+                    {{item.name}} {{item.moblie}}
+                </view>
+                <view class="add">
+                    {{item.region[0] == item.region[1]?'':item.region[0]}} {{item.region[1]}} {{item.region[2]}} {{item.add}}
+                </view>
+                <view class="default">
+                    <view class="left">
+                        <label class="radio">
+                            <radio value="{{item.id}}" checked="{{item.checked}}"/>
+                        </label>
+                        <text bindtap="radioChange" data-index="{{index}}" class="radioText">{{item.label}}</text>
+                    </view>
+                    <view class="right">
+                        <view bindtap="edit" class="edit_view" data-index="{{index}}">
+                            <image class="edit" mode="aspectFit" src="../../images/bianji.png"></image>
+                            <text class="editText">编辑</text>
+                        </view>
+                        <view bindtap="del" class="del_view" data-index="{{index}}">
+                            <image class="del" mode="aspectFit" src="../../images/shanchu.png"></image>
+                            <text class="delText">删除</text>
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+        </block>
+    </radio-group>
+</view>
+<navigator url="../addmgrdetail/addmgrdetail">
+    <image id="xinzeng" mode="aspectFit" src="../../images/xinzeng.png"></image>
+    <button id="newAdd">新增收货地址</button>
+</navigator>

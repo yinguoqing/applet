@@ -1,0 +1,15 @@
+<import src="../../template/list.wxml"/>
+<view id="all">
+    <view id="first">
+        <view>喜欢这个活动吗?</view>
+        <view>想给孩子和小伙伴们包场吗?</view>
+        <view>现在提交您的手机号,我们会在1-2天内联系您</view>
+    </view>
+
+    <view id="second">
+        <block wx:for="{{items}}" wx:key="id">
+            <template is="list" data="{{...item.item}}"/>
+        </block>
+    </view>
+    <button bindtap="finish">完成</button>
+</view>

@@ -1,0 +1,21 @@
+<import src="../../template/list.wxml"/>
+<view id="all">
+    <view id="first">
+        <view>如果您想和飞飞象开展业务合作</view>
+        <view>如果您想预约飞飞象负责人了解合作信息，</view>
+        <view>现在提交您的信息，我们会在1-2个工作日内联系您！</view>
+    </view>
+
+    <view id="second">
+        <block wx:for="{{items}}" wx:key="id">
+            <template is="list" data="{{...item.item}}"/>
+        </block>
+        <!--<view class="content2">
+            <view class="text2">
+                <text>合作意向</text>
+            </view>
+            <textarea class="textarea" placeholder="介绍您的亲子产品以及希望的合作方式" bindinput="buchongInput" maxlength="300"/>
+        </view>-->
+    </view>
+    <button bindtap="finish">完成</button>
+</view>

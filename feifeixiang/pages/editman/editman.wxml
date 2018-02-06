@@ -1,0 +1,50 @@
+<view id="all">
+    <view class="child_list">
+        <view class="content">
+            <view class="text">
+                <text>名字</text>
+            </view>
+            <input id="name" value="{{name}}" placeholder-style="color: #8d8d8d" placeholder="请输入名字" maxlength="6"  bindinput="nameInputEvent"/>
+        </view>
+        <view class="content">
+            <view class="text">
+                <text>身份证号</text>
+            </view>
+            <input id="idNum" value="{{idNum}}" placeholder-style="color: #8d8d8d" placeholder="请输入身份证号" type="idcard" maxlength="18"  bindinput="idNumInputEvent" />
+        </view>
+        <view class="content">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                <view id="">
+                    <view class="title">
+                        性别
+                    </view>
+                    <view class="holder2">
+                        {{array[index]}}
+                    </view>
+                    <view class="back2">
+                        <image id="" class="back" mode="widthFix" src="{{src1}}"></image>
+                    </view>
+                </view>
+            </picker>
+        </view>
+        <view class="content" id="birth">
+            <picker mode="date" value="{{date}}" start="1900-01-01" end="{{end}}" bindchange="bindDateChange">
+                <view id="">
+                    <view class="title">
+                        生日
+                    </view>
+                    <view class="holder" wx:if="{{date == ''}}">
+                        请选择生日
+                    </view>
+                    <view class="holder2" wx:else>
+                        {{date}}
+                    </view>
+                    <view class="back2" >
+                        <image id="" class="back" mode="widthFix" src="{{src1}}"></image>
+                    </view>
+                </view>
+            </picker>
+        </view>
+    </view>
+    <button id="finish" bindtap="save" disabled="{{flag}}" class="{{disable}}">完成</button>
+</view>

@@ -1,0 +1,26 @@
+<view id="all">
+    <view id="first">
+        <text class="add_text1">{{title}}</text>
+        <view bindtap="addman">
+            <image class="add" mode="scaleToFill" src="{{src}}"></image>
+            <text class="add_text2">新增</text>
+        </view>
+    </view>
+    <view class="content" wx:for="{{traveller}}" wx:key="id" data-index="{{index}}" bindlongpress="del">
+        <image class="edit" data-index="{{index}}" mode="scaleToFill" src="{{src1}}" bindtap="edit"></image>
+        <view bindtap="gou" data-index="{{index}}" class="gouxuan" >
+            <view class="content_text1">
+                <view class="name">{{item.name}}</view>
+                <!--<view>{{item.type}} {{item.sex}}</view>-->
+                <view>{{item.sex}}</view>
+            </view>
+            <view class="content_text2">
+                <view>身份证</view>
+                <view>{{item.idCard}}</view>
+            </view>
+            <image class="gou" mode="scaleToFill" src="{{item.src}}"></image>
+        </view>
+        <view class="border"></view>
+    </view>
+    <button id="finish" bindtap="submit" disabled="{{flag}}" class="{{disable}}">提交</button>
+</view>

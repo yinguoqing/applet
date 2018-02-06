@@ -1,0 +1,21 @@
+<view id="all">
+    <view id="first">
+        <image class="top_img" mode="widthFix" src="{{src}}"></image>
+        <view class="title">转发红包</view>
+        <view class="text1">在活动页面将活动转发给朋友,</view>
+        <view class="text2">
+            <text>您可以获得</text>
+            <text class="red">{{forward_red}}</text>
+            <text>元红包！</text>
+        </view>
+        <view class="text2">（需完善个人信息后，转发才可获得红包）</view>
+        <view class="text2">（我已知悉红包不能提现、转发成功后奖励到账）</view>
+    </view>
+    <view id="second">
+        <view class="text3">点击按钮进行转发</view>
+        <label for="share">
+            <view id="zhuanfa" bindtap="share">去转发</view>
+        </label>
+    </view>
+    <button id="share" open-type="share"></button>
+</view>

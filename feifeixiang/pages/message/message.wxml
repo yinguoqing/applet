@@ -1,0 +1,12 @@
+<button id="btn" open-type="contact"></button>
+<label class="label" for="btn">
+    <view id="kefuView">
+        <image id="kefu" mode="widthFix" src="{{src}}"></image>
+        <view id="textView">
+            <view class="text">飞飞象客服</view>
+            <view class="text2">点击进入客服会话</view>
+        </view>
+        <contact-button id="btn2" type="default-light" size="100" session-from="kefuBtn">
+        </contact-button>
+    </view>
+</label>

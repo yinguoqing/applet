@@ -1,0 +1,174 @@
+<block wx:if="{{!showEmpty}}">
+<view id="all">
+    <view id="first">
+        <view id="topAll">
+            <view id="top" bindtap="chooseCity">
+                <image id="locationImg" mode="scaleToFill" src="../../images/location.png"></image>
+                <text id="addressText">{{rgcData.city}}店</text>
+            </view>
+            <view id="searchId" bindtap="search">
+                <image id="inputImg" mode="scaleToFill" src="../../images/search_icon.png"></image>
+                <input id="searchInput" value="{{searchInput}}" placeholder-style="color:#8d8d8d" disabled="true" placeholder="请输入搜索信息" bindinput="searchTap"/>
+            </view>
+        </view>
+        <view id="topBgView">
+            <image  id="topBg"  mode="scaleToFill"  src="{{src}}"></image>
+        </view>
+        <swiper indicator-dots="{{indicatorDots}}"
+                bindchange="imgChange"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <block wx:for="{{imgUrls}}" wx:key="*this">
+                <swiper-item>
+                    <view id="topIcon" >
+                        <view class="column" wx:for="{{array}}"  wx:key="id">
+                            <view wx:if="{{item.text =='定制生日会'}}" bindtap="party" hover-class="hover" hover-stay-time="200">
+                                <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                                <view class="text">
+                                    <text>{{item.text}}</text>
+                                </view>
+                            </view>
+                            <block wx:elif="{{item.text =='体验注意力'||item.text =='少年领袖'}}">
+                                <navigator url="../details/index?id={{item.pid}}">
+                                    <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                                    <view class="text">
+                                        <text>{{item.text}}</text>
+                                    </view>
+                                </navigator>
+                            </block>
+                            <view wx:elif="{{item.text =='定制申请'}}" bindtap="dingzhi" hover-class="hover" hover-stay-time="200">
+                                <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                                <view class="text">
+                                    <text>{{item.text}}</text>
+                                </view>
+                            </view>
+                            <block wx:elif="{{item.text =='直播间'}}">
+                                <navigator url="../live/live">
+                                    <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                                    <view class="text">
+                                        <text>{{item.text}}</text>
+                                    </view>
+                                </navigator>
+                            </block>
+                            <view wx:else>
+                                <navigator url="../list/list?text={{item.text}}&shopid={{shopid}}">
+                                    <image class="img" mode="scaleToFill" src="{{item.src}}"></image>
+                                    <view class="text">
+                                        <text>{{item.text}}</text>
+                                    </view>
+                                </navigator>
+                            </view>
+
+                        </view>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+        <!--<image class="middle_img"  mode="scaleToFill" src="{{src2}}"></image>-->
+    </view>
+    <view id="second">
+        <view id="hot" class="title">
+            <text id="hotText" class="titleText">{{second}}</text>
+        </view>
+        <view id="hotContent">
+            <view class="hotColumn" wx:for="{{array2}}" wx:key="id">
+                <navigator url="../details/index?id={{item.id}}">
+                    <image class="hotImg" mode="scaleToFill" src="{{item.src}}"></image>
+                    <view class="text2">
+                        <text>{{item.text}}</text>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <text id="checkmore">滑动查看更多</text>
+    </view>
+
+    <view id="third">
+        <view id="near" class="title">
+            <text id="nearText" class="titleText">{{third}}</text>
+        </view>
+        <view id="address_line" bindtap="refresh">
+            <image id="location" mode="scaleToFill" src="../../images/position_icon.png"></image>
+            <text id="locationText">{{rgcData.formatted_address}}</text>
+            <image id="refresh" class="{{animation}}" mode="scaleToFill" src="../../images/shuaxin_icon.png" ></image>
+        </view>
+        <view id="nearContent">
+            <view class="nearColumn" wx:for="{{array3}}" wx:key="id">
+                <navigator url="../details/index?id={{item.id}}">
+                    <image class="nearImg" mode="scaleToFill" src="{{item.src}}"></image>
+                    <view class="text4">
+                        <text class="text31">{{item.text}}</text>
+                        <view class="locationRight">
+                            <image id="location2" mode="scaleToFill" src="../../images/position_icon.png"></image>
+                            <text class="juli">{{item.distance}}km</text>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <button id="checkNear" bindtap="checkNear">查看附近活动</button>
+    </view>
+    <view id="fourth">
+        <view id="recommend" class="title">
+            <text id="recommendText" class="titleText">{{fourth}}</text>
+        </view>
+        <view class="recommendColumn" wx:for="{{array4}}" wx:key="id">
+            <navigator url="../details/index?id={{item.id}}">
+                <image class="recommendImg2" mode="scaleToFill" src="{{item.src}}"></image>
+                <text class="tuijian">{{item.text}}</text>
+                <image class="price_label" mode="scaleToFill" src="../../images/price_label.png"></image>
+                <view id="priceText">
+                    <text class="qi2">¥ </text>
+                    <text class="money2">{{item.price}}</text>
+                    <text class="qi2">起</text>
+                </view>
+                <view class="num">
+                    <text class="leiji">累计</text>
+                    <text class="num2">{{item.num}}</text>
+                    <text class="leiji">人报名</text>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view id="fifth">
+        <view id="recommend" class="title">
+            <text id="recommendText" class="titleText">{{fifth}}</text>
+        </view>
+        <view class="recommendColumn" wx:for="{{array5}}" wx:key="id">
+            <navigator url="../details/index?id={{item.id}}">
+                <image class="recommendImg2" mode="scaleToFill" src="{{item.src}}"></image>
+                <text class="tuijian">{{item.text}}</text>
+            </navigator>
+        </view>
+    </view>
+    <block wx:if="{{showScrollTop}}">
+        <view>
+            <image class="scrollTop" mode="scaleToFill" src="{{scrollTopSrc}}" bindtap="scrollTopClick"></image>
+        </view>
+    </block>
+</view>
+</block>
+<block wx:else>
+    <view id="topAll">
+        <view id="top" bindtap="chooseCity">
+            <image id="locationImg" mode="scaleToFill" src="../../images/location.png"></image>
+            <text id="addressText">{{rgcData.city}}店</text>
+        </view>
+        <view id="searchId" bindtap="search">
+            <image id="inputImg" mode="scaleToFill" src="../../images/search_icon.png"></image>
+            <input id="searchInput" value="{{searchInput}}" placeholder-style="color:#8d8d8d" disabled="true" placeholder="请输入搜索信息" bindinput="searchTap"/>
+        </view>
+    </view>
+    <view class="noData">
+        <image class="noData_img" mode="widthFix" src="{{emptySrc}}"></image>
+        <view class="empty">暂未开放,请点击左上角更换店铺</view>
+    </view>
+</block>
+<view class="loading {{hideCube}}">
+    <view class="sk-folding-cube">
+        <view class="sk-cube1 sk-cube"></view>
+        <view class="sk-cube2 sk-cube"></view>
+        <view class="sk-cube4 sk-cube"></view>
+        <view class="sk-cube3 sk-cube"></view>
+    </view>
+    <view class="data_loading">玩命加载中</view>
+    <view class="data_loading2">若加载过慢,可下拉刷新</view>
+</view>

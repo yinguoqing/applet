@@ -1,0 +1,10 @@
+page{
+    font-size: 26rpx;
+    color: #585858;
+}
+.wxParse-p{
+    width: 100%;
+}
+.wxParse-img {
+    width:100%!important;
+}

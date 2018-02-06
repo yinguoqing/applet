@@ -1,0 +1,57 @@
+<import src="../../template/list.wxml"/>
+<view id="all">
+    <view id="first">
+        <view class="txt1">生日会预约</view>
+        <view class="txt2">定制您的专属party</view>
+    </view>
+    <view id="second">
+        <view class="title">
+            <text class="title_text">选择日期</text>
+        </view>
+        <view class="title2">
+            <picker mode="date" start="2015-09-01" end="{{end}}" bindchange="bindDateChange">
+                <view class="picker">
+                    <text class="{{date == ''?'grey':''}}">{{date == ''?'请选择孩子生日':date}}</text>
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view id="third">
+        <view class="title">
+            <text class="title_text">参加人数</text>
+        </view>
+        <view class="title2">
+            <input type="number" placeholder-style="color: #8d8d8d" placeholder="请填写参加人数" maxlength="6" bindinput="numInputEvent"/>
+        </view>
+    </view>
+    <view id="fourth">
+        <view class="title">
+            <text class="title_text">寿星姓名</text>
+        </view>
+        <view class="title2">
+            <input placeholder-style="color: #8d8d8d" placeholder="请填写寿星姓名" maxlength="15" bindinput="childInputEvent"/>
+        </view>
+    </view>
+    <view id="fifth">
+        <view class="title" id="titleInput">
+            <text class="title_text">联系人信息</text>
+        </view>
+        <view class="title2">
+            <view class="inline inputPre">姓名: </view>
+            <input class="inline input" placeholder-style="color: #8d8d8d" placeholder="请填写联系人姓名" maxlength="15" bindinput="manInputEvent"/>
+        </view>
+        <view class="title3">
+            <view class="inline inputPre">手机号: </view>
+            <input class="inline input" type="number" placeholder-style="color: #8d8d8d" placeholder="请填写联系人手机号" maxlength="11" bindinput="telInputEvent"/>
+        </view>
+    </view>
+    <view id="sixth">
+        <view class="title" id="titleInput">
+            <text class="title_text">备注</text>
+        </view>
+        <view class="title2">
+            <textarea bindinput="textInput" auto-height placeholder="其他要求" placeholder-style="color:#8d8d8d;" />
+        </view>
+    </view>
+    <button class="button" bindtap="finish">立即预约</button>
+</view>
